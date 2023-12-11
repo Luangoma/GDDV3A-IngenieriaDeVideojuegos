@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -32,9 +33,17 @@ public class spaceshipMovement : MonoBehaviour
         {
             maxHorizontalMove += 0.01f * horizontalMove;        // Restamos la diferencia al máximo
             horizontalInercia = maxHorizontalMove;
-            Vector3 rotation = transform.eulerAngles;
-            rotation.z = 270f;
-            //rotation.z = Mathf.Min(rotation.z, 270f);
+            Vector3 rotation = transform.rotation.eulerAngles;
+
+            if ((rotation.z > 90f && rotation.z < 270f))
+            {
+                rotation.z += 30f;
+                Debug.Log("Giro 10 rotacion.z vale " + rotation.z);
+            }
+            else if ((rotation.z <= 90f && rotation.z >= 0) || (rotation.z <= 360f && rotation.z > 270f) )
+            {
+                rotation.z -= 30f;
+            }
             transform.eulerAngles = rotation;
 
         }
