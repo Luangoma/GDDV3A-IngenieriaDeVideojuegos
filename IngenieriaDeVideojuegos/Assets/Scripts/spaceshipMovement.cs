@@ -28,54 +28,42 @@ public class spaceshipMovement : MonoBehaviour
 
         // Lógica horizontal
 
-        if (maxHorizontalMove > horizontalMove && horizontalMove > 0)   //
-        {
-            horizontalInercia = maxHorizontalMove;
-        }
-        else
-        if (maxHorizontalMove < horizontalMove && horizontalMove > 0)
+        if (horizontalMove > 0 && maxHorizontalMove < 1.5f)
         {
             maxHorizontalMove += 0.01f * horizontalMove;        // Restamos la diferencia al máximo
             horizontalInercia = maxHorizontalMove;
+            Vector3 rotation = transform.eulerAngles;
+            rotation.z = 270f;
+            //rotation.z = Mathf.Min(rotation.z, 270f);
+            transform.eulerAngles = rotation;
 
         }
-        else
-        if (maxHorizontalMove > horizontalMove && horizontalMove < 0)
+        else if (horizontalMove < 0 && maxHorizontalMove > -1.5f)
         {
             maxHorizontalMove += 0.01f * horizontalMove;        // Restamos la diferencia al máximo
             horizontalInercia = maxHorizontalMove;
+            Vector3 rotation = transform.eulerAngles;
+            rotation.z = 90f;
+            transform.eulerAngles = rotation;
         }
         else
-        if (maxHorizontalMove < horizontalMove && horizontalMove < 0)
         {
-            horizontalInercia = maxHorizontalMove;
+            //horizontalInercia = maxHorizontalMove;        // No es necesario porque horizontalInercia ya tiene el valor del maxHorizontalMove de la ùltima iteración
         }
 
         // Lógica vertical
 
-        if (maxVerticalMove > verticalMove && verticalMove > 0)   //
-        {
-            verticalInercia = maxVerticalMove;
-        }
-        else
-        if (maxVerticalMove < verticalMove && verticalMove > 0)
+        if (verticalMove != 0 && maxHorizontalMove < 1.5f)
         {
             maxVerticalMove += 0.01f * verticalMove;        // Restamos la diferencia al máximo
             verticalInercia = maxVerticalMove;
 
         }
         else
-        if (maxVerticalMove > verticalMove && verticalMove < 0)
-        {
-            maxVerticalMove += 0.01f * verticalMove;        // Restamos la diferencia al máximo
-            verticalInercia = maxVerticalMove;
-        }
-        else
-        if (maxVerticalMove < verticalMove && verticalMove < 0)
         {
             verticalInercia = maxVerticalMove;
         }
-
+        
         ship.Move(new Vector3(horizontalInercia * speed, verticalInercia * speed, 0));
     }
 }
