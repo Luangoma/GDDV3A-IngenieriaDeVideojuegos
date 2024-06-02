@@ -1,0 +1,19 @@
+Patrones posibles:
+
+S - Observer : Estrellas (elementos) y evento de muerte del jugador, marcador de puntos etc - 			SEGURO
+
+  - State : Tal vez para el movimiento de la nave - (?) - 							CANCELAR
+
+  - Dirty Flag : Guardar partida en medio de una partida - (?) - 						CANCELAR
+
+  - Fly Weight : Ataques con la nave (laseres, proyectiles, etc) - (¿Combiando con Object Pool?) - 		BONUS
+
+D - Command : Habilidades acumulables - 									BONUS
+
+L - Prototype : Diferentes naves, diferentes variantes - 							SEGURO
+
+M - Object Pool : Combinarlo Fly Weight con los proyectiles y obstáculos planetas o campos gravitacionales) : 	SEGURO
+    No replicar elementos, ahorrar espacio de memoria
+
+D - Singleton y Service Locator (ni put* idea) : Managers, posible camera manager - 				SEGURO
+
