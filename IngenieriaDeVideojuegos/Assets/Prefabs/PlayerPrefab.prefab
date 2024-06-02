@@ -63,10 +63,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigidBody: {fileID: 4818219358423359501}
-  linearAcceleration: 100
-  angularAcceleration: 10
-  maxLinearVelocity: 100
-  maxAngularVelocity: 100
+  linearAcceleration: 200
+  angularAcceleration: 6
+  maxLinearVelocity: 300
+  maxAngularVelocity: 50
 --- !u!54 &4818219358423359501
 Rigidbody:
   m_ObjectHideFlags: 0

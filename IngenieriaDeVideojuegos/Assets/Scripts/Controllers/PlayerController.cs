@@ -54,8 +54,8 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.W)) movementVector.x += 1;
         if (Input.GetKey(KeyCode.S)) movementVector.x -= 1;
 
-        if (Input.GetKey(KeyCode.A)) movementVector.y += 1;
-        if (Input.GetKey(KeyCode.D)) movementVector.y -= 1;
+        if (Input.GetKey(KeyCode.D)) movementVector.y += 1;
+        if (Input.GetKey(KeyCode.A)) movementVector.y -= 1;
     }
 
     private void UpdateMovement(float delta)
@@ -64,7 +64,10 @@ public class PlayerController : MonoBehaviour
             this.rigidBody.AddForce(delta * this.movementVector.x * this.transform.up * this.linearAcceleration, ForceMode.VelocityChange);
 
         if (this.rigidBody.angularVelocity.magnitude < this.maxAngularVelocity)
-            this.rigidBody.AddTorque(delta * this.movementVector.y * this.transform.forward * this.angularAcceleration, ForceMode.VelocityChange);
+        {
+            this.rigidBody.AddTorque(delta * (-1 * this.movementVector.y) * this.transform.forward * this.angularAcceleration, ForceMode.VelocityChange);
+            this.rigidBody.AddForce(delta * this.movementVector.y * this.movementVector.x * this.transform.right * (this.linearAcceleration / 2), ForceMode.VelocityChange);
+        }
     }
 
     #endregion
