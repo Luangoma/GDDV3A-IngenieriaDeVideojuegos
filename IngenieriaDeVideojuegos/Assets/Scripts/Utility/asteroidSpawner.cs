@@ -5,9 +5,14 @@ using UnityEngine;
 public class asteroidMover : MonoBehaviour
 {
     public GameObject asteroidPrefab;
-    public int tamPool = 5;
+    [SerializeField] private Camera cameraReference;
+    public int tamPool = 50;
+    public float spawnRate = 2.0f;
+    // Falta meter un countdown de los asteroides o que si se alejan mucho desaparezcan
 
-    private GameObject[] asteroidPool;
+    private GameObject[] asteroidPool;      // Puede que en vez de gameObject aqui haya que hacer un tipo Object pool
+    private Vector2 dimPantalla;
+
 
     // Start is called before the first frame update
     void Start()
@@ -16,14 +21,25 @@ public class asteroidMover : MonoBehaviour
         for (int i = 0; i < tamPool; i++)
         {
             asteroidPool[i] = Instantiate(asteroidPrefab);
-            //asteroidPool[i].SetActive(false);
+            asteroidPool[i].SetActive(false);
         }
+        dimPantalla = cameraReference.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, cameraReference.transform.position.z));
+        InvokeRepeating("SpawnAsteroid", 0f, spawnRate);
 
     }
-
-    // Update is called once per frame
-    void Update()
+    void SpawnAsteroid()
     {
-        
+        for (int i = 0; i < tamPool; i++)
+        {
+            if (!asteroidPool[i].activeInHierarchy)
+            {
+                float spawnX = Random.Range(-dimPantalla.x, dimPantalla.x);
+                float spawnY = Random.Range(-dimPantalla.y, dimPantalla.y);
+                asteroidPool[i].transform.position = new Vector2(spawnX, spawnY);
+                print("asteroide en "+spawnX+", "+spawnY);
+                asteroidPool[i].SetActive(true);
+                break;
+            }
+        }
     }
 }
