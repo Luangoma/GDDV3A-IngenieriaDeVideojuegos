@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float maxLinearVelocity;
     [SerializeField] private float maxAngularVelocity;
 
-    private Vector2 movementVector;
+    public Vector2 movementVector;
 
     #endregion
 
@@ -43,6 +43,10 @@ public class PlayerController : MonoBehaviour
     #endregion
 
     #region PublicMethods
+
+    //public Vector2 getMovementVector() { 
+    //    return movementVector;
+    //}
     #endregion
 
     #region PrivateMethods
