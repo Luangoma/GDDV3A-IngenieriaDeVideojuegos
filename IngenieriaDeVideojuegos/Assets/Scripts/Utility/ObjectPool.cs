@@ -2,24 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectPool : IObjectPool
+public class ObjectPool<T> : IObjectPool<T> where T : class, IPooleableObject<T>
 {
     #region Variables
 
-    private IPooleableObject pooleableObjectType;
+    private T pooleableObjectType;
     private bool allowRegrow;
-    private List<IPooleableObject> objectList;
+    private List<T> objectList;
     private int activeObjects;
 
     #endregion
 
     #region PublicMethods
 
-    public ObjectPool(IPooleableObject pooleableObjectType, int initialNumberOfElements, bool allowRegrow = false)
+    public ObjectPool(T pooleableObjectType, int initialNumberOfElements, bool allowRegrow = false)
     {
         this.pooleableObjectType = pooleableObjectType;
         this.allowRegrow = allowRegrow;
-        this.objectList = new List<IPooleableObject>(initialNumberOfElements);
+        this.objectList = new List<T>(initialNumberOfElements);
         this.activeObjects = 0;
         for (int i = 0; i < initialNumberOfElements; ++i)
         {
@@ -27,7 +27,7 @@ public class ObjectPool : IObjectPool
         }
     }
 
-    public IPooleableObject Get()
+    public T Get()
     {
         for (int i = 0; i < objectList.Count; ++i)
         {
@@ -41,7 +41,7 @@ public class ObjectPool : IObjectPool
 
         if (allowRegrow)
         {
-            IPooleableObject obj = CreateObject();
+            T obj = CreateObject();
             obj.SetActive(true);
             objectList.Add(obj);
             activeObjects++;
@@ -51,7 +51,7 @@ public class ObjectPool : IObjectPool
         return null;
     }
 
-    public void Release(IPooleableObject obj)
+    public void Release(T obj)
     {
         obj.SetActive(false);
         obj.Reset();
@@ -87,7 +87,7 @@ public class ObjectPool : IObjectPool
 
     #region PrivateMethods
 
-    private IPooleableObject CreateObject()
+    private T CreateObject()
     {
         return this.pooleableObjectType.Clone();
     }

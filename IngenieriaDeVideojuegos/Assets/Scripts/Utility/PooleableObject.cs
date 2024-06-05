@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PooleableObject : MonoBehaviour, IPooleableObject
+public class PooleableGameObject : MonoBehaviour, IPooleableObject<PooleableGameObject>
 {
     public bool GetActive()
     {
@@ -16,11 +16,10 @@ public class PooleableObject : MonoBehaviour, IPooleableObject
     public void Reset()
     {}
 
-    public IPooleableObject Clone()
+    public PooleableGameObject Clone()
     {
-        GameObject obj = Instantiate(gameObject, this.transform.position, this.transform.rotation);
-        IPooleableObject ans = obj.GetComponent<IPooleableObject>();
+        PooleableGameObject obj = Instantiate<PooleableGameObject>(this, this.transform.position, this.transform.rotation);
         this.SetActive(false);
-        return ans;
+        return this;
     }
 }

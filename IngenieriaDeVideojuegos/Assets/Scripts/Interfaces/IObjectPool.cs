@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IObjectPool
+public interface IObjectPool<T> where T : class
 {
-    public IPooleableObject Get();
-    public void Release(IPooleableObject objectToRelease);
+    public T Get();
+    public void Release(T objectToRelease);
 
     public int GetActiveCount();
     public int GetCount();

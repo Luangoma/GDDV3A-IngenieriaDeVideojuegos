@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Utility\PooleableObject.cs" />
+    <Compile Include="Assets\Scripts\Interfaces\IPrototype.cs" />
     <Compile Include="Assets\Scripts\Controllers\AsteroidSpawnerController.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IPooleableObject.cs" />
     <Compile Include="Assets\Scripts\Managers\CameraManager.cs" />

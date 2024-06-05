@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements.Experimental;
 
-public class Asteroid : MonoBehaviour, IPooleableObject
+public class Asteroid : MonoBehaviour
 {
     #region Variables
 
@@ -65,14 +65,6 @@ public class Asteroid : MonoBehaviour, IPooleableObject
     public void Reset()
     {
 
-    }
-
-    public IPooleableObject Clone()
-    {
-        GameObject obj = Instantiate(gameObject, this.transform.position, this.transform.rotation);
-        IPooleableObject ans = obj.GetComponent<IPooleableObject>();
-        this.SetActive(false);
-        return ans;
     }
 
 }
