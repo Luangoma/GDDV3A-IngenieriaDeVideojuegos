@@ -6,7 +6,7 @@ public class AsteroidSpawnerController : MonoBehaviour
 {
     #region Variables
 
-    [SerializeField] private IPooleableObject asteroidPrefab;
+    [SerializeField] private PooleableObject asteroidPrefab;
     [SerializeField] private float spawnRate;
     [SerializeField] private float spawnRadiusMax;
     [SerializeField] private float spawnRadiusMin;
@@ -19,7 +19,7 @@ public class AsteroidSpawnerController : MonoBehaviour
 
     void Start()
     {
-        //asteroidPool = new ObjectPool(asteroidPrefab, 100, false);
+        asteroidPool = new ObjectPool(asteroidPrefab, 100, false);
     }
 
     void Update()
