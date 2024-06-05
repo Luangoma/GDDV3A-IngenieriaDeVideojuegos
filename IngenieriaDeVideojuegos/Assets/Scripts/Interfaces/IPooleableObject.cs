@@ -7,5 +7,5 @@ public interface IPooleableObject
     public bool GetActive();
     public void SetActive(bool newActive);
     public void Reset();
-    public IPooleableObject Instantiate();
+    public IPooleableObject Clone();
 }

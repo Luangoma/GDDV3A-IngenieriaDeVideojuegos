@@ -3,12 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements.Experimental;
 
-public class Asteroid : MonoBehaviour
+public class Asteroid : MonoBehaviour, IPooleableObject
 {
+    #region Variables
+
     public GameObject target;
     public float speed;
     public float timeSinceActivated;
     public float lifeTime;
+
+    #endregion
+
+    #region MonoBehaviour
 
     // Start is called before the first frame update
     void Start()        // En la creacion del objeto
@@ -43,4 +49,30 @@ public class Asteroid : MonoBehaviour
             gameObject.SetActive(false);
         }
     }
+
+    #endregion
+
+    public bool GetActive()
+    {
+        return gameObject.activeSelf;
+    }
+
+    public void SetActive(bool newActive)
+    {
+        gameObject.SetActive(newActive);
+    }
+
+    public void Reset()
+    {
+
+    }
+
+    public IPooleableObject Clone()
+    {
+        GameObject obj = Instantiate(gameObject, this.transform.position, this.transform.rotation);
+        IPooleableObject ans = obj.GetComponent<IPooleableObject>();
+        this.SetActive(false);
+        return ans;
+    }
+
 }

@@ -89,7 +89,7 @@ public class ObjectPool : IObjectPool
 
     private IPooleableObject CreateObject()
     {
-        return this.pooleableObjectType.Instantiate();
+        return this.pooleableObjectType.Clone();
     }
 
     #endregion
