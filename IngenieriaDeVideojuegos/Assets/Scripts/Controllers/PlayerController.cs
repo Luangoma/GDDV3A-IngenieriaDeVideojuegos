@@ -16,13 +16,15 @@ public class PlayerController : MonoBehaviour
 
     public Vector2 movementVector;
 
+    private float startingZ;
+
     #endregion
 
     #region MonoBehaviour
 
     void Start()
     {
-        
+        this.startingZ = this.transform.position.z;
     }
 
     void Update()
@@ -72,6 +74,8 @@ public class PlayerController : MonoBehaviour
             this.rigidBody.AddTorque(delta * (-1 * this.movementVector.y) * this.transform.forward * this.angularAcceleration, ForceMode.VelocityChange);
             this.rigidBody.AddForce(delta * this.movementVector.y * this.movementVector.x * this.transform.right * (this.linearAcceleration / 2), ForceMode.VelocityChange);
         }
+
+        this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, this.startingZ);
     }
 
     #endregion
