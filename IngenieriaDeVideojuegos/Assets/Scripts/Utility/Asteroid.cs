@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements.Experimental;
+using System;
 
 public class Asteroid : MonoBehaviour
 {
@@ -9,25 +10,18 @@ public class Asteroid : MonoBehaviour
 
     public GameObject target;
     public float speed;
-    public float timeSinceActivated;
-    public float lifeTime;
+    public Action onFarFromPlayer;
 
     #endregion
 
     #region MonoBehaviour
 
-    // Start is called before the first frame update
-    void Start()        // En la creacion del objeto
+    void Start()
     {
         speed = 100.0f;
-        lifeTime = 15f;
         target = GameObject.FindWithTag("Player");
     }
-    void OnEnable() {   // Cada vez que se active el objeto
-        timeSinceActivated = 0.0f;
-    }
 
-    // Update is called once per frame
     void Update()
     {
         Vector2 heading = target.transform.position-transform.position;
@@ -36,35 +30,12 @@ public class Asteroid : MonoBehaviour
         float step = heading.magnitude/speed * Time.deltaTime;
         transform.position = Vector3.MoveTowards(transform.position, target.transform.position, step);
 
-        timeSinceActivated += Time.deltaTime;
-
-        //Desactivador por tiempo
-        //if (timeSinceActivated >= lifeTime)
-        //{
-        //    gameObject.SetActive(false);
-        //}
-        // Desactivador por lejanía
         if (heading.magnitude > 250)
         {
-            gameObject.SetActive(false);
+            onFarFromPlayer?.Invoke();
         }
     }
 
     #endregion
-
-    public bool GetActive()
-    {
-        return gameObject.activeSelf;
-    }
-
-    public void SetActive(bool newActive)
-    {
-        gameObject.SetActive(newActive);
-    }
-
-    public void Reset()
-    {
-
-    }
 
 }
