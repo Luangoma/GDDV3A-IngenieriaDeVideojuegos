@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
 public class PooleableGameObject : MonoBehaviour, IPooleableObject<PooleableGameObject>
 {
     public bool GetActive()
@@ -23,3 +24,4 @@ public class PooleableGameObject : MonoBehaviour, IPooleableObject<PooleableGame
         return this;
     }
 }
+*/

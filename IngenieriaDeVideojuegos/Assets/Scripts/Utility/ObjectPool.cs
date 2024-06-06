@@ -1,86 +1,161 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
-public class ObjectPool<T> : IObjectPool<T> where T : class, IPooleableObject<T>
+public class ObjectPool<T> : IObjectPool<T> where T : class
 {
-    #region Variables
+    #region Classes
 
-    private T pooleableObjectType;
-    private bool allowRegrow;
-    private List<T> objectList;
-    private int activeObjects;
+    public class PooleableObjectWrapper<U> : IPooleableObject<U> where U : class
+    {
+        private U data;
+        private bool isActive;
+
+        public PooleableObjectWrapper(U obj, bool active = false)
+        {
+            this.data = obj;
+            this.isActive = active;
+        }
+
+        public void SetActive(bool active)
+        {
+            this.isActive = active;
+        }
+
+        public bool GetActive()
+        {
+            return this.isActive;
+        }
+
+        public U GetObject()
+        {
+            return this.data;
+        }
+
+    }
 
     #endregion
 
-    #region PublicMethods
+    #region Variables
 
-    public ObjectPool(T pooleableObjectType, int initialNumberOfElements, bool allowRegrow = false)
+    private List<PooleableObjectWrapper<T>> objects;
+    private int activeObjects;
+    private int initialCapacity;
+    private int maxCapacity;
+
+    // Delegates. These will be called (if available) internally when the ObjectPool functions are called.
+    private Func<T> onCreateFn;
+    private Action<IPooleableObject<T>> onDestroyFn;
+    private Action<IPooleableObject<T>> onGetFn;
+    private Action<IPooleableObject<T>> onReleaseFn;
+
+    #endregion
+
+    #region Constructor
+
+    public ObjectPool(
+        Func<T> newOnCreateFn = null,
+        Action<IPooleableObject<T>> newOnGetFn = null,
+        Action<IPooleableObject<T>> newOnReleaseFn = null,
+        Action<IPooleableObject<T>> newOnDestroyFn = null,
+        int initialCapacity = 100,
+        int maxCapacity = 1000,
+        bool preallocate = true)
     {
-        this.pooleableObjectType = pooleableObjectType;
-        this.allowRegrow = allowRegrow;
-        this.objectList = new List<T>(initialNumberOfElements);
+        this.onCreateFn = newOnCreateFn;
+        this.onDestroyFn = newOnDestroyFn;
+        this.onGetFn = newOnGetFn;
+        this.onReleaseFn = newOnReleaseFn;
+        this.objects = new List<PooleableObjectWrapper<T>>(initialCapacity);
         this.activeObjects = 0;
-        for (int i = 0; i < initialNumberOfElements; ++i)
+        this.initialCapacity = initialCapacity;
+        this.maxCapacity = maxCapacity;
+
+        // Preallocate everything to prevent memory fragmentation.
+        if (preallocate)
         {
-            objectList.Add(CreateObject());
+            for (int i = 0; i < initialCapacity; ++i)
+            {
+                var obj = CreateObject();
+                var wrapper = new PooleableObjectWrapper<T>(obj, false);
+                objects.Add(wrapper);
+            }
         }
     }
 
-    public T Get()
+    #endregion
+
+    // The main dish of an ObjectPool: Get() and Release()
+    #region PrimaryPublicMethods
+
+    public IPooleableObject<T> Get()
     {
-        for (int i = 0; i < objectList.Count; ++i)
+        for (int i = 0; i < objects.Count; ++i)
         {
-            if (!objectList[i].GetActive())
+            if (!objects[i].GetActive())
             {
-                objectList[i].SetActive(true);
-                activeObjects++;
-                return objectList[i];
+                objects[i].SetActive(true);
+                onGetFn(objects[i]);
+                ++activeObjects;
+                return objects[i];
             }
         }
 
-        if (allowRegrow)
+        if(CanRegrow())
         {
             T obj = CreateObject();
-            obj.SetActive(true);
-            objectList.Add(obj);
-            activeObjects++;
-            return obj;
+            var wrapper = new PooleableObjectWrapper<T>(obj, true);
+            wrapper.SetActive(true);
+            onGetFn(wrapper);
+            ++activeObjects;
+            objects.Add(wrapper);
+            return wrapper;
         }
 
         return null;
     }
 
-    public void Release(T obj)
+    public void Release(IPooleableObject<T> obj)
     {
+        if(onReleaseFn != null)
+            onReleaseFn(obj);
         obj.SetActive(false);
-        obj.Reset();
-        --this.activeObjects;
+        --activeObjects;
     }
+
+    public void Clear()
+    {
+        if (onDestroyFn != null)
+        {
+            foreach (var obj in objects)
+            {
+                onDestroyFn(obj);
+            }
+        }
+        objects.Clear();
+        activeObjects = 0;
+    }
+
+    #endregion
+
+    // Things like getters and such.
+    #region SecondaryPublicMethods
 
     public int GetActiveCount()
     {
         return this.activeObjects;
     }
-    
+
     public int GetCount()
     {
-        return this.objectList.Count;
+        return this.objects.Count;
     }
 
     public int GetInactiveCount()
     {
-        return this.objectList.Count - this.activeObjects;
-    }
-
-    public bool GetAllowRegrow()
-    {
-        return this.allowRegrow;
-    }
-
-    public void SetAllowRegrow(bool newAllowRegrow)
-    {
-        this.allowRegrow = newAllowRegrow;
+        return this.objects.Count - this.activeObjects;
     }
 
     #endregion
@@ -89,7 +164,14 @@ public class ObjectPool<T> : IObjectPool<T> where T : class, IPooleableObject<T>
 
     private T CreateObject()
     {
-        return this.pooleableObjectType.Clone();
+        if (onCreateFn != null)
+            return onCreateFn();
+        return default(T);
+    }
+
+    private bool CanRegrow()
+    {
+        return objects.Count < maxCapacity;
     }
 
     #endregion

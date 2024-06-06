@@ -4,14 +4,16 @@ using UnityEngine;
 
 public interface IObjectPool<T> where T : class
 {
-    public T Get();
-    public void Release(T objectToRelease);
+    public IPooleableObject<T> Get();
+    
+    public void Release(IPooleableObject<T> objectToRelease);
 
     public int GetActiveCount();
+    
     public int GetCount();
+
     public int GetInactiveCount();
 
-    public bool GetAllowRegrow();
-    public void SetAllowRegrow(bool newAllowRegrow);
+    public void Clear();
 
 }
