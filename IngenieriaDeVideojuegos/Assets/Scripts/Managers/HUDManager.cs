@@ -32,6 +32,7 @@ public class HUDManager : Singleton<HUDManager>
     public void Resume()
     {
         print("Resume");
+        Time.timeScale = 1.0f;
         this.playerHUD?.SetActive(true);
         this.pauseMenuHUD?.SetActive(false);
         isPaused = false;
@@ -40,6 +41,7 @@ public class HUDManager : Singleton<HUDManager>
     private void Pause()
     {
         print("Pause");
+        Time.timeScale = 0;
         this.playerHUD?.SetActive(false);
         this.pauseMenuHUD?.SetActive(true);
         isPaused = true;

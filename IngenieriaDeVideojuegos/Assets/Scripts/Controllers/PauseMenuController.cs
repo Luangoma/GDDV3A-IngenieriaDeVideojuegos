@@ -34,6 +34,7 @@ public class PauseMenuController : MonoBehaviour
 
     public void OnReturnToMenuButtonPressed()
     {
+        Resume(); // important to resume first to unpause (reset time scale to 1) before going back to main menu.
         ReturnToMenu();
     }
 
