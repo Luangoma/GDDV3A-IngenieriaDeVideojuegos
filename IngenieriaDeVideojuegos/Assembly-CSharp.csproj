@@ -68,10 +68,12 @@
     <Compile Include="Assets\Scripts\Controllers\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Controllers\MainMenuController.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
+    <Compile Include="Assets\Scripts\Managers\HUDManager.cs" />
     <Compile Include="Assets\Scripts\Controllers\CreditsMenuController.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IObjectPool.cs" />
     <Compile Include="Assets\Scripts\Utility\CameraTarget.cs" />
     <Compile Include="Assets\Scripts\Managers\GameManager.cs" />
+    <Compile Include="Assets\Scripts\Controllers\PauseMenuController.cs" />
     <Compile Include="Assets\Scripts\Utility\ObjectPool.cs" />
     <Compile Include="Assets\Scripts\deprecated\spaceshipMovement.cs" />
     <Compile Include="Assets\Scripts\Utility\Asteroid.cs" />
