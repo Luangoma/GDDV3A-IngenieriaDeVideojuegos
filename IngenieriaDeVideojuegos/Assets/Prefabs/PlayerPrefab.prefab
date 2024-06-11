@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5164691889121291998}
   - component: {fileID: 4818219358423359501}
   - component: {fileID: 4319698106496726416}
+  - component: {fileID: 7343520924233349231}
   m_Layer: 0
   m_Name: PlayerPrefab
   m_TagString: Untagged
@@ -67,6 +68,7 @@ MonoBehaviour:
   angularAcceleration: 6
   maxLinearVelocity: 300
   maxAngularVelocity: 50
+  movementVector: {x: 0, y: 0}
 --- !u!54 &4818219358423359501
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -115,6 +117,20 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.3
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7343520924233349231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1512782934554904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48f2bda1c0c6fb54d9af1803824af212, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHealth: 100
+  maxHealth: 100
 --- !u!1 &103211303816724864
 GameObject:
   m_ObjectHideFlags: 0
