@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerHUDController : MonoBehaviour
+public class PlayerHUDController : MonoBehaviour, IHUD
 {
     #region Variables
 
+    [SerializeField] private Canvas canvas;
     [SerializeField] private Image healthBar;
     [SerializeField] private HealthController healthController;
 
@@ -27,6 +28,17 @@ public class PlayerHUDController : MonoBehaviour
     #endregion
 
     #region PublicMethods
+
+    public bool GetVisible()
+    {
+        return this.canvas.gameObject.activeSelf;
+    }
+
+    public void SetVisible(bool visible)
+    {
+        this.canvas.gameObject.SetActive(visible);
+    }
+
     #endregion
 
     #region PrivateMethods

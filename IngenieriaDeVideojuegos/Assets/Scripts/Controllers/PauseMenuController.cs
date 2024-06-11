@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PauseMenuController : MonoBehaviour
+public class PauseMenuController : MonoBehaviour, IHUD
 {
     #region Variables
 
+    [SerializeField] private Canvas canvas;
     [SerializeField] private string menuSceneName;
 
     #endregion
@@ -26,6 +27,16 @@ public class PauseMenuController : MonoBehaviour
     #endregion
 
     #region PublicMethods
+
+    public bool GetVisible()
+    {
+        return this.canvas.gameObject.activeSelf;
+    }
+
+    public void SetVisible(bool visible)
+    {
+        this.canvas.gameObject.SetActive(visible);
+    }
 
     public void OnResumeButtonPressed()
     {
