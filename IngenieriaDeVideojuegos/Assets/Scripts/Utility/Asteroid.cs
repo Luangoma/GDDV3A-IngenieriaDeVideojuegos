@@ -12,30 +12,6 @@ public class Asteroid : MonoBehaviour, IObstacle
     public ScriptableObjectObstacle _scriptableObjectObstacle;
     public Action onFarFromPlayer;
 
-    public void FollowTarget()
-    {
-        Vector2 heading = _scriptableObjectObstacle.target.transform.position - transform.position;
-
-        // Los asteroides se mueven hacia la nave mas rapido a mas lejos estan
-        float step = heading.magnitude / _scriptableObjectObstacle.speed * Time.deltaTime;
-        transform.position = Vector3.MoveTowards(transform.position, _scriptableObjectObstacle.target.transform.position, step);
-
-        if (heading.magnitude > 250)
-        {
-            onFarFromPlayer?.Invoke();
-        }
-    }
-
-    public void OnCollisionEnter(Collision collision)
-    {
-        OnCollideTarget();
-    }
-    public void OnCollideTarget()
-    {
-        // disminuir vida
-
-    }
-
     #endregion
 
     #region MonoBehaviour
@@ -51,8 +27,46 @@ public class Asteroid : MonoBehaviour, IObstacle
 
     void Update()
     {
-        FollowTarget();
+        FollowTarget(Time.deltaTime);
     }
+
+    #endregion
+
+    #region PublicMethods
+
+    public void FollowTarget(float delta)
+    {
+        Vector2 heading = _scriptableObjectObstacle.target.transform.position - transform.position;
+
+        // Los asteroides se mueven hacia la nave mas rapido a mas lejos estan
+        float step = heading.magnitude / _scriptableObjectObstacle.speed * delta;
+        transform.position = Vector3.MoveTowards(transform.position, _scriptableObjectObstacle.target.transform.position, step);
+
+        if (heading.magnitude > 250)
+        {
+            onFarFromPlayer?.Invoke();
+        }
+    }
+
+    public void OnCollisionEnter(Collision collision)
+    {
+        OnCollideTarget(collision);
+    }
+    public void OnCollideTarget(Collision collision)
+    {
+        // Disminuir vida del jugador al colisionar.
+
+        bool success;
+        PlayerController playerController;
+
+        success = collision.gameObject.TryGetComponent<PlayerController>(out playerController);
+        
+        if (!success)
+            return;
+
+
+    }
+
 
     #endregion
 
