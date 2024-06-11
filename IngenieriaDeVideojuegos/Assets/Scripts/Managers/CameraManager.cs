@@ -65,8 +65,8 @@ public class CameraManager : Singleton<CameraManager>
             return;
         if (lerpCameraTransform)
         {
-            if (updatePosition) cameraReference.transform.position = Vector3.Lerp(cameraReference.transform.position, followTarget.cameraSocket.position, lerpCameraFactor * delta);
-            if (updateRotation) cameraReference.transform.rotation = Quaternion.Lerp(cameraReference.transform.rotation, followTarget.cameraSocket.rotation.normalized, lerpCameraFactor * delta);
+            if (updatePosition) cameraReference.transform.position = Vector3.Lerp(cameraReference.transform.position, followTarget.cameraSocket.position, Mathf.Clamp01(lerpCameraFactor * delta));
+            if (updateRotation) cameraReference.transform.rotation = Quaternion.Lerp(cameraReference.transform.rotation, followTarget.cameraSocket.rotation.normalized, Mathf.Clamp01(lerpCameraFactor * delta));
         }
         else
         {
