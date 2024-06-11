@@ -2,6 +2,6 @@ using UnityEngine;
 
 public interface IObstacle
 {
-    public void FollowTarget();
-    public void OnCollideTarget();
+    public void FollowTarget(float delta);
+    public void OnCollideTarget(Collision collision);
 }
