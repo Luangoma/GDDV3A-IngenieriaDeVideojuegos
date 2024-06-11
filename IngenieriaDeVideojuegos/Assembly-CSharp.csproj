@@ -61,12 +61,14 @@
     <Compile Include="Assets\Scripts\Utility\PooleableObject.cs" />
     <Compile Include="Assets\Scripts\Controllers\PlayerHUDController.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IPrototype.cs" />
+    <Compile Include="Assets\Scripts\Interfaces\IHUD.cs" />
     <Compile Include="Assets\Scripts\Controllers\AsteroidSpawnerController.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IPooleableObject.cs" />
     <Compile Include="Assets\Scripts\Managers\CameraManager.cs" />
     <Compile Include="Assets\Scripts\Utility\Singleton.cs" />
     <Compile Include="Assets\Scripts\Utility\asteroidSpawner.cs" />
     <Compile Include="Assets\Scripts\Controllers\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\Controllers\DeathHUDController.cs" />
     <Compile Include="Assets\Scripts\Controllers\MainMenuController.cs" />
     <Compile Include="Assets\Scripts\Utility\ScriptableObjectObstacle.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
