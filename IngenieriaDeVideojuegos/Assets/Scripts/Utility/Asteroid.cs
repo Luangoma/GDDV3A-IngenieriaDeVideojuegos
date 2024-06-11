@@ -57,14 +57,17 @@ public class Asteroid : MonoBehaviour, IObstacle
         // Disminuir vida del jugador al colisionar.
 
         bool success;
-        PlayerController playerController;
+        HealthController healthController;
 
-        success = collision.gameObject.TryGetComponent<PlayerController>(out playerController);
+        success = collision.gameObject.TryGetComponent<HealthController>(out healthController);
         
         if (!success)
-            return;
+            return; // The collided object does not have a health component, so we return, since we cannot damage the object.
 
+        float impactVelocity = collision.relativeVelocity.magnitude;
 
+        if(impactVelocity > 12)
+            healthController.Damage(impactVelocity / 5);
     }
 
 
