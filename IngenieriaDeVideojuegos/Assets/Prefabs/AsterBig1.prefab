@@ -99,8 +99,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38fbb602f7020a84daaa825f86082c6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 4193583667243190, guid: e698db508e7eefe46874e81bebae9052, type: 3}
-  speed: 5
+  _scriptableObjectObstacle: {fileID: 11400000, guid: d64753c22670dac48a2f0ba48ebe9d53,
+    type: 2}
 --- !u!54 &2039292760447109526
 Rigidbody:
   m_ObjectHideFlags: 0
