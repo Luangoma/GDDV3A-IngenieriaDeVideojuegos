@@ -64,6 +64,16 @@ public class HealthController : MonoBehaviour
         this.SetHealth(this.currentHealth + heal);
     }
 
+    public bool IsAlive()
+    {
+        return this.currentHealth > 0;
+    }
+
+    public bool IsDead()
+    {
+        return this.currentHealth <= 0;
+    }
+
     #endregion
 
     #region PrivateMethods
