@@ -6,10 +6,12 @@ public class HUDManager : Singleton<HUDManager>
 {
     #region Variables
 
-    [SerializeField] private GameObject playerHUD;
-    [SerializeField] private GameObject pauseMenuHUD;
+    [SerializeField] private PlayerHUDController playerHUD;
+    [SerializeField] private PauseMenuController pauseMenuHUD;
+    [SerializeField] private DeathHUDController deathHUD;
 
     private bool isPaused = false;
+    private bool canPause = true;
 
     #endregion
 
@@ -17,6 +19,7 @@ public class HUDManager : Singleton<HUDManager>
 
     void Start()
     {
+        HideAllHUDs();
         Resume();
     }
 
@@ -33,8 +36,8 @@ public class HUDManager : Singleton<HUDManager>
     {
         print("Resume");
         Time.timeScale = 1.0f;
-        this.playerHUD?.SetActive(true);
-        this.pauseMenuHUD?.SetActive(false);
+        this.playerHUD?.SetVisible(true);
+        this.pauseMenuHUD?.SetVisible(false);
         isPaused = false;
     }
 
@@ -42,9 +45,20 @@ public class HUDManager : Singleton<HUDManager>
     {
         print("Pause");
         Time.timeScale = 0;
-        this.playerHUD?.SetActive(false);
-        this.pauseMenuHUD?.SetActive(true);
+        this.playerHUD?.SetVisible(false);
+        this.pauseMenuHUD?.SetVisible(true);
         isPaused = true;
+    }
+
+    #endregion
+
+    #region PrivateMethods
+
+    private void HideAllHUDs()
+    {
+        this.playerHUD?.SetVisible(false);
+        this.pauseMenuHUD?.SetVisible(false);
+        this.deathHUD?.SetVisible(false);
     }
 
     private void SwitchPauseMenu()
@@ -59,9 +73,6 @@ public class HUDManager : Singleton<HUDManager>
         }
     }
 
-    #endregion
-
-    #region PrivateMethods
     #endregion
 
 }
