@@ -25,7 +25,7 @@ public class HUDManager : Singleton<HUDManager>
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape)) SwitchPauseMenu();
+        if (canPause && Input.GetKeyDown(KeyCode.Escape)) SwitchPauseMenu();
     }
 
     #endregion
@@ -48,6 +48,14 @@ public class HUDManager : Singleton<HUDManager>
         this.playerHUD?.SetVisible(false);
         this.pauseMenuHUD?.SetVisible(true);
         isPaused = true;
+    }
+
+    public void DisplayPlayerDeath()
+    {
+        this.canPause = false;
+        Resume();
+        HideAllHUDs();
+        deathHUD.SetVisible(true);
     }
 
     #endregion

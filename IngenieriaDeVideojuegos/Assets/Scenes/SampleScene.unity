@@ -2255,7 +2255,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1190365071}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1219947132}
+        m_TargetAssemblyTypeName: DeathHUDController, Assembly-CSharp
+        m_MethodName: OnReturnToMenuButtonPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1190365071
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2341,6 +2353,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 387772732}
   backgroundImage: {fileID: 1951160669}
+  menuSceneName: MainMenu
 --- !u!1 &1240658778
 GameObject:
   m_ObjectHideFlags: 0

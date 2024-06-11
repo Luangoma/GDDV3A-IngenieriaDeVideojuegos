@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class HealthController : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class HealthController : MonoBehaviour
 
     [SerializeField] private float currentHealth;
     [SerializeField] private float maxHealth;
+
+    public Action<float, float> OnValueChanged;
 
     #endregion
 
@@ -30,7 +33,9 @@ public class HealthController : MonoBehaviour
 
     public void SetHealth(float health)
     {
+        float oldValue = this.currentHealth;
         this.currentHealth = Mathf.Clamp(health, 0, maxHealth);
+        OnValueChanged?.Invoke(oldValue, currentHealth);
     }
 
     public float GetHealth()

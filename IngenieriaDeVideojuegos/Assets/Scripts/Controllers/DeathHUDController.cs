@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class DeathHUDController : MonoBehaviour, IHUD
@@ -9,6 +10,7 @@ public class DeathHUDController : MonoBehaviour, IHUD
 
     [SerializeField] private Canvas canvas;
     [SerializeField] private Image backgroundImage;
+    [SerializeField] private string menuSceneName;
 
     #endregion
 
@@ -38,9 +40,21 @@ public class DeathHUDController : MonoBehaviour, IHUD
         this.canvas.gameObject.SetActive(visible);
     }
 
+    public void OnReturnToMenuButtonPressed()
+    {
+        ReturnToMenu();
+    }
+
     #endregion
 
     #region PrivateMethods
+
+    private void ReturnToMenu()
+    {
+        if (this.menuSceneName != null)
+            SceneManager.LoadScene(this.menuSceneName, LoadSceneMode.Single);
+    }
+
     #endregion
 
 }
