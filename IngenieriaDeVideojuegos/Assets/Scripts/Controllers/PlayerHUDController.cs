@@ -31,7 +31,7 @@ public class PlayerHUDController : MonoBehaviour, IHUD
 
     void Update()
     {
-        UpdateHealthBar(Time.deltaTime);
+        UpdateHUD(Time.deltaTime);
     }
 
     #endregion
@@ -84,7 +84,7 @@ public class PlayerHUDController : MonoBehaviour, IHUD
 
     private void UpdateScore()
     {
-
+        this.scoreText.text = "Score : " + GameManager.Instance.GetScore();
     }
 
     #endregion

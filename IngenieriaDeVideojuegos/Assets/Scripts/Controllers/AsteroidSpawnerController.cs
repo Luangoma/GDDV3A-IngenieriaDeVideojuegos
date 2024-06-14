@@ -95,7 +95,7 @@ public class AsteroidSpawnerController : MonoBehaviour
         if (successAsteroid && successHealth)
         {
             asteroid.onFarFromPlayer = () => { asteroidPool.Release(obj); };
-            health.OnDeath = () => { asteroidPool.Release(obj); };
+            health.OnDeath = () => { asteroidPool.Release(obj); GameManager.Instance.IncrementScore(); };
         }
 
         obj.GetObject().SetActive(true);

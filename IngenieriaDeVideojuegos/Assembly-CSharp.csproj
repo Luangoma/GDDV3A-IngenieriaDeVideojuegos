@@ -79,8 +79,8 @@
     <Compile Include="Assets\Scripts\Controllers\MineLightFlickerController.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IObjectPool.cs" />
     <Compile Include="Assets\Scripts\Utility\CameraTarget.cs" />
-    <Compile Include="Assets\Scripts\Managers\GameManager.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IPickUp.cs" />
+    <Compile Include="Assets\Scripts\Managers\GameManager.cs" />
     <Compile Include="Assets\Scripts\Controllers\BulletSpawnerController.cs" />
     <Compile Include="Assets\Scripts\Controllers\PauseMenuController.cs" />
     <Compile Include="Assets\Scripts\Managers\LevelManager.cs" />

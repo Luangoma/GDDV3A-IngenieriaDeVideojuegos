@@ -6,9 +6,10 @@ public class GameManager : Singleton<GameManager>
 {
     #region Variables
 
-    [SerializeField] public PlayerController playerReference;
-
+    private PlayerController playerReference;
     private HealthController playerHealthController;
+
+    private int score;
 
     #endregion
 
@@ -27,12 +28,30 @@ public class GameManager : Singleton<GameManager>
     #endregion
 
     #region PublicMethods
+
+    public int GetScore()
+    {
+        return this.score;
+    }
+
+    public void IncrementScore()
+    {
+        this.score++;
+    }
+
     #endregion
 
     #region PrivateMethods
 
     private void InitVariables()
     {
+        this.score = 0;
+
+        GameObject obj = GameObject.FindWithTag("Player");
+
+        if (obj != null)
+            playerReference = obj.GetComponent<PlayerController>();
+
         if(playerReference != null)
             playerHealthController = playerReference.GetComponent<HealthController>();
         
