@@ -87,6 +87,7 @@
     <Compile Include="Assets\Scripts\Utility\ObjectPool.cs" />
     <Compile Include="Assets\Scripts\Controllers\HealthController.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IObstacle.cs" />
+    <Compile Include="Assets\Scripts\Controllers\DamageController.cs" />
     <Compile Include="Assets\Scripts\Controllers\MenuControllers\CreditsMenuController.cs" />
     <Compile Include="Assets\Scripts\deprecated\spaceshipMovement.cs" />
     <Compile Include="Assets\Scripts\Utility\Asteroid.cs" />
