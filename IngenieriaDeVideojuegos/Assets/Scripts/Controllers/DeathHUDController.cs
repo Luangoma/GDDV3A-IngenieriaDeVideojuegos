@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -10,6 +11,7 @@ public class DeathHUDController : MonoBehaviour, IHUD
 
     [SerializeField] private Canvas canvas;
     [SerializeField] private Image backgroundImage;
+    [SerializeField] private TMP_Text scoreText;
 
     private PlayerController playerController;
 
@@ -39,6 +41,7 @@ public class DeathHUDController : MonoBehaviour, IHUD
     public void SetVisible(bool visible)
     {
         this.canvas.gameObject.SetActive(visible);
+        UpdateScoreText();
     }
 
     public void SetPlayerReference(PlayerController player)
@@ -68,6 +71,11 @@ public class DeathHUDController : MonoBehaviour, IHUD
     private void Retry()
     {
         LevelManager.Instance.ReloadLevel();
+    }
+
+    private void UpdateScoreText()
+    {
+        this.scoreText.text = "Puntuación : " + GameManager.Instance.GetScore();
     }
 
     #endregion

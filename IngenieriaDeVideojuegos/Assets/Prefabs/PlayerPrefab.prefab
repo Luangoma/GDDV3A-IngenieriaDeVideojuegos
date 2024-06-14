@@ -66,6 +66,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidBody: {fileID: 4818219358423359501}
   bulletSpawner: {fileID: 1700979001177640317}
+  healthController: {fileID: 7343520924233349231}
   linearAcceleration: 200
   angularAcceleration: 6
   maxLinearVelocity: 300
