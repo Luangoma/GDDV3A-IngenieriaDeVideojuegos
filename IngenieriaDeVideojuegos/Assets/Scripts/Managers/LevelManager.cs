@@ -64,6 +64,12 @@ public class LevelManager : SingletonPersistent<LevelManager>
         return this.currentSceneName;
     }
 
+    // Returns to the main menu.
+    public void ReturnToMenu()
+    {
+        this.LoadLevel(this.menuSceneName);
+    }
+
     #endregion
 
     #region PrivateMethods

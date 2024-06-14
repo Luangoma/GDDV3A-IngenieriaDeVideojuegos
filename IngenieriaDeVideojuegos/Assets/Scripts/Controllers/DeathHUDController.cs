@@ -10,7 +10,6 @@ public class DeathHUDController : MonoBehaviour, IHUD
 
     [SerializeField] private Canvas canvas;
     [SerializeField] private Image backgroundImage;
-    [SerializeField] private string menuSceneName;
 
     #endregion
 
@@ -45,14 +44,23 @@ public class DeathHUDController : MonoBehaviour, IHUD
         ReturnToMenu();
     }
 
+    public void OnRetryButtonPressed()
+    {
+        Retry();
+    }
+
     #endregion
 
     #region PrivateMethods
 
     private void ReturnToMenu()
     {
-        if (this.menuSceneName != null)
-            SceneManager.LoadScene(this.menuSceneName, LoadSceneMode.Single);
+        LevelManager.Instance.ReturnToMenu();
+    }
+
+    private void Retry()
+    {
+        LevelManager.Instance.ReloadLevel();
     }
 
     #endregion

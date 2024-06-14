@@ -35,7 +35,7 @@ public class CreditsMenuController : MonoBehaviour
 
     private void ReturnToMenu()
     {
-        LevelManager.Instance.LoadLevel(LevelManager.Instance.MenuSceneName);
+        LevelManager.Instance.ReturnToMenu();
     }
 
     #endregion

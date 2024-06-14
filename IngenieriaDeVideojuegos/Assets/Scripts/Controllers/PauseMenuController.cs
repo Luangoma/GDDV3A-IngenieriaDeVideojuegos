@@ -8,7 +8,6 @@ public class PauseMenuController : MonoBehaviour, IHUD
     #region Variables
 
     [SerializeField] private Canvas canvas;
-    [SerializeField] private string menuSceneName;
 
     #endregion
 
@@ -45,7 +44,7 @@ public class PauseMenuController : MonoBehaviour, IHUD
 
     public void OnReturnToMenuButtonPressed()
     {
-        Resume(); // important to resume first to unpause (reset time scale to 1) before going back to main menu.
+        Resume(); // Important to resume first to unpause (reset time scale to 1) before going back to main menu. This is done automatically, but, again, done for correctness sake...
         ReturnToMenu();
     }
 
@@ -53,7 +52,12 @@ public class PauseMenuController : MonoBehaviour, IHUD
     {
         QuitGame();
     }
-    
+
+    public void OnRetryButtonPressed()
+    {
+        Retry();
+    }
+
     #endregion
 
     #region PrivateMethods
@@ -63,10 +67,15 @@ public class PauseMenuController : MonoBehaviour, IHUD
         HUDManager.Instance.Resume();
     }
 
+    private void Retry()
+    {
+        Resume(); // Unpause first (doesn't matter since time scale is reset automatically, but this is done for correctness sake...)
+        LevelManager.Instance.ReloadLevel();
+    }
+
     private void ReturnToMenu()
     {
-        if(this.menuSceneName != null)
-            SceneManager.LoadScene(this.menuSceneName, LoadSceneMode.Single);
+        LevelManager.Instance.ReturnToMenu();
     }
 
     private void QuitGame()
