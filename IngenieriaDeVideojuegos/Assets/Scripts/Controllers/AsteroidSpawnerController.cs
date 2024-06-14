@@ -86,9 +86,17 @@ public class AsteroidSpawnerController : MonoBehaviour
 
         obj.GetObject().transform.position = spawnPosition;
 
-        Asteroid asteroid = obj.GetObject().GetComponent<Asteroid>();
-        if (asteroid != null)
+        bool successAsteroid, successHealth;
+        Asteroid asteroid;
+        HealthController health;
+        successAsteroid = obj.GetObject().TryGetComponent<Asteroid>(out asteroid);
+        successHealth = obj.GetObject().TryGetComponent<HealthController>(out health);
+
+        if (successAsteroid && successHealth)
+        {
             asteroid.onFarFromPlayer = () => { asteroidPool.Release(obj); };
+            health.OnDeath = () => { asteroidPool.Release(obj); };
+        }
 
         obj.GetObject().SetActive(true);
     }

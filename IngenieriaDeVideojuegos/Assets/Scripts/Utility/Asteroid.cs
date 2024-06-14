@@ -9,7 +9,8 @@ public class Asteroid : MonoBehaviour, IObstacle
 {
     #region Variables
 
-    public ScriptableObjectObstacle _scriptableObjectObstacle;
+    [SerializeField] public ScriptableObjectObstacle _scriptableObjectObstacle;
+    
     public Action onFarFromPlayer;
 
     #endregion

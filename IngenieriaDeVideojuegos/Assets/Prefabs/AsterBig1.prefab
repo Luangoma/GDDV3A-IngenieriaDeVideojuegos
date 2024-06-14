@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2039292760447109526}
   - component: {fileID: 1217927622324784687}
   - component: {fileID: 6900282960749615623}
+  - component: {fileID: 4684569295472338731}
   m_Layer: 0
   m_Name: AsterBig1
   m_TagString: Untagged
@@ -51,6 +52,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _scriptableObjectObstacle: {fileID: 11400000, guid: d64753c22670dac48a2f0ba48ebe9d53,
     type: 2}
+  health: {fileID: 4684569295472338731}
 --- !u!54 &2039292760447109526
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -114,6 +116,20 @@ MonoBehaviour:
   spriteOn: {fileID: 6638494649021952469}
   spriteOff: {fileID: 5821794098900672690}
   flickerTime: 2
+--- !u!114 &4684569295472338731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2123067323010305577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48f2bda1c0c6fb54d9af1803824af212, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHealth: 10
+  maxHealth: 10
 --- !u!1 &5821794098900672690
 GameObject:
   m_ObjectHideFlags: 0
