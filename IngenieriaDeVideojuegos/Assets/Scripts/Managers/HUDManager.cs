@@ -41,7 +41,7 @@ public class HUDManager : Singleton<HUDManager>
         isPaused = false;
     }
 
-    private void Pause()
+    public void Pause()
     {
         print("Pause");
         Time.timeScale = 0;
@@ -56,6 +56,13 @@ public class HUDManager : Singleton<HUDManager>
         Resume();
         HideAllHUDs();
         deathHUD.SetVisible(true);
+    }
+
+    public void AttachHUDS(PlayerController player)
+    {
+        this.playerHUD?.SetPlayerReference(player);
+        this.pauseMenuHUD?.SetPlayerReference(player);
+        this.deathHUD?.SetPlayerReference(player);
     }
 
     #endregion
