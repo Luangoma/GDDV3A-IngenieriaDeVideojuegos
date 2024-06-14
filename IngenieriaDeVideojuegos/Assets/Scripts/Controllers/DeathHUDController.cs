@@ -11,6 +11,8 @@ public class DeathHUDController : MonoBehaviour, IHUD
     [SerializeField] private Canvas canvas;
     [SerializeField] private Image backgroundImage;
 
+    private PlayerController playerController;
+
     #endregion
 
     #region MonoBehaviour
@@ -37,6 +39,11 @@ public class DeathHUDController : MonoBehaviour, IHUD
     public void SetVisible(bool visible)
     {
         this.canvas.gameObject.SetActive(visible);
+    }
+
+    public void SetPlayerReference(PlayerController player)
+    {
+        this.playerController = player;
     }
 
     public void OnReturnToMenuButtonPressed()
