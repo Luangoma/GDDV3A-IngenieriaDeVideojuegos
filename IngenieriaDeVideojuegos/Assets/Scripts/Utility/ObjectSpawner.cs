@@ -6,24 +6,30 @@ public static class ObjectSpawner
 {
     #region PublicMethods
 
-    public static GameObject SpawnGameObject(GameObject prefab, Vector3 position, Quaternion rotation)
+    public static GameObject SpawnGameObject(GameObject prefab, Vector3 position, Quaternion rotation, bool spawnActive = true)
     {
-        return InstantiateGameObject(prefab, position, rotation);
+        return InstantiateGameObject(prefab, position, rotation, spawnActive);
     }
 
-    public static GameObject SpawnGameObject(GameObject prefab)
+    public static GameObject SpawnGameObject(GameObject prefab, bool spawnActive = true)
     {
-        return InstantiateGameObject(prefab, Vector3.zero, Quaternion.identity);
+        return InstantiateGameObject(prefab, Vector3.zero, Quaternion.identity, spawnActive);
+    }
+
+    public static GameObject SpawnGameObject(GameObject prefab, Transform transform, bool spawnActive = true)
+    {
+        return InstantiateGameObject(prefab, transform.position, transform.rotation, spawnActive);
     }
 
     #endregion
 
     #region PrivateMethods
 
-    private static GameObject InstantiateGameObject(GameObject prefab, Vector3 position, Quaternion rotation)
+    private static GameObject InstantiateGameObject(GameObject prefab, Vector3 position, Quaternion rotation, bool spawnActive)
     {
-        GameObject game_object = Object.Instantiate(prefab, position, rotation);
-        return game_object;
+        GameObject obj = Object.Instantiate(prefab, position, rotation);
+        obj.SetActive(spawnActive);
+        return obj;
     }
 
     #endregion
