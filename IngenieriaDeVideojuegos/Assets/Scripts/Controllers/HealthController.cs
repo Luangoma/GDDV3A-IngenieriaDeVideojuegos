@@ -24,8 +24,7 @@ public class HealthController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P)) this.Damage(10);
-        if (Input.GetKeyDown(KeyCode.O)) this.Heal(10);
+        
     }
 
     #endregion

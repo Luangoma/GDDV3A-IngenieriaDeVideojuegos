@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private Rigidbody rigidBody;
     [SerializeField] private BulletSpawnerController bulletSpawner;
+    [SerializeField] private HealthController healthController;
 
     [SerializeField] private float linearAcceleration;
     [SerializeField] private float angularAcceleration;
@@ -73,6 +74,11 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.A)) movementVector.y -= 1;
 
         if (Input.GetKeyDown(KeyCode.Return)) Shoot();
+
+
+        // DEBUG INPUT : DISABLE IN PRODUCTION!!!
+        if (Input.GetKeyDown(KeyCode.P)) this.healthController.Damage(10);
+        if (Input.GetKeyDown(KeyCode.O)) this.healthController.Heal(10);
     }
 
     private void UpdateMovement(float delta)
