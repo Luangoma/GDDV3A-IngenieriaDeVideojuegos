@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class BulletSpawnerController : MonoBehaviour
@@ -9,9 +10,10 @@ public class BulletSpawnerController : MonoBehaviour
 
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private int maxBullets = 20;
-    [SerializeField] private Transform bulletSpawnTransform;
+    [SerializeField] private Transform[] bulletSpawnTransformList;
 
     private ObjectPool<GameObject> bulletPool;
+    private int transformIdx = 0;
 
     #endregion
 
@@ -54,10 +56,11 @@ public class BulletSpawnerController : MonoBehaviour
 
     private void OnGetBullet(IPooleableObject<GameObject> obj)
     {
-        if (this.bulletSpawnTransform == null)
+        if (this.bulletSpawnTransformList.Length < 1)
             return;
-        obj.GetObject().transform.position = bulletSpawnTransform.position;
-        obj.GetObject().transform.rotation = bulletSpawnTransform.rotation;
+        int idx = NextTransformIdx();
+        obj.GetObject().transform.position = bulletSpawnTransformList[idx].position;
+        obj.GetObject().transform.rotation = bulletSpawnTransformList[idx].rotation;
         obj.GetObject().SetActive(true);
         obj.GetObject().GetComponent<BulletController>().OnDespawnBullet = () => { this.bulletPool.Release(obj); };
     }
@@ -72,6 +75,12 @@ public class BulletSpawnerController : MonoBehaviour
     {
         obj.GetObject().SetActive(false);
         Destroy(obj.GetObject());
+    }
+
+    private int NextTransformIdx()
+    {
+        this.transformIdx = (this.transformIdx + 1) % this.bulletSpawnTransformList.Length;
+        return this.transformIdx;
     }
 
     #endregion
