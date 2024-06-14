@@ -6,4 +6,5 @@ public interface IHUD
 {
     void SetVisible(bool visible);
     bool GetVisible();
+    void SetPlayerReference(PlayerController player);
 }
