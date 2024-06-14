@@ -65,18 +65,17 @@
     <Compile Include="Assets\Scripts\Interfaces\IHUD.cs" />
     <Compile Include="Assets\Scripts\Controllers\AsteroidSpawnerController.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IPooleableObject.cs" />
+    <Compile Include="Assets\Scripts\Controllers\MenuControllers\MainMenuController.cs" />
     <Compile Include="Assets\Scripts\Managers\CameraManager.cs" />
     <Compile Include="Assets\Scripts\Utility\Singleton.cs" />
     <Compile Include="Assets\Scripts\Controllers\PlayerFlameController.cs" />
     <Compile Include="Assets\Scripts\Utility\asteroidSpawner.cs" />
     <Compile Include="Assets\Scripts\Controllers\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Controllers\DeathHUDController.cs" />
-    <Compile Include="Assets\Scripts\Controllers\MainMenuController.cs" />
     <Compile Include="Assets\Scripts\Utility\ScriptableObjectObstacle.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
     <Compile Include="Assets\Scripts\Managers\HUDManager.cs" />
     <Compile Include="Assets\Scripts\Controllers\MineLightFlickerController.cs" />
-    <Compile Include="Assets\Scripts\Controllers\CreditsMenuController.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IObjectPool.cs" />
     <Compile Include="Assets\Scripts\Utility\CameraTarget.cs" />
     <Compile Include="Assets\Scripts\Managers\GameManager.cs" />
@@ -87,6 +86,7 @@
     <Compile Include="Assets\Scripts\Utility\ObjectPool.cs" />
     <Compile Include="Assets\Scripts\Controllers\HealthController.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IObstacle.cs" />
+    <Compile Include="Assets\Scripts\Controllers\MenuControllers\CreditsMenuController.cs" />
     <Compile Include="Assets\Scripts\deprecated\spaceshipMovement.cs" />
     <Compile Include="Assets\Scripts\Utility\Asteroid.cs" />
   </ItemGroup>
