@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 4872543843966103770}
   - component: {fileID: 8153451676552398}
   - component: {fileID: 524676648359084356}
+  - component: {fileID: 2781431077058627432}
   m_Layer: 0
   m_Name: BulletPrefab
   m_TagString: Untagged
@@ -151,5 +152,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91484525dec882b4fb4ba9ed76a0d594, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocity: 100
+  velocity: 250
   despawnTime: 10
+--- !u!114 &2781431077058627432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2786768185776910794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adf046fe82f35a145ba8bde77f7ba1b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
