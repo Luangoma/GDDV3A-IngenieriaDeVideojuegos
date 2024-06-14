@@ -9,8 +9,19 @@ public class LevelManager : SingletonPersistent<LevelManager>
 
     [SerializeField] private string menuSceneName;
     [SerializeField] private string creditsSceneName;
+    [SerializeField] private string[] playSceneNames;
 
     private string currentSceneName;
+
+    #endregion
+
+    #region PublicGetters
+
+    public string MenuSceneName { get { return menuSceneName; } }
+    public string CreditsSceneName { get { return creditsSceneName; } }
+    public string CurrentSceneName { get { return currentSceneName; } }
+
+    public string[] PlaySceneNames { get { return playSceneNames; } }
 
     #endregion
 
@@ -18,7 +29,7 @@ public class LevelManager : SingletonPersistent<LevelManager>
 
     void Start()
     {
-        
+
     }
 
     void Update()
@@ -29,19 +40,25 @@ public class LevelManager : SingletonPersistent<LevelManager>
     #endregion
 
     #region PublicMethods
-
+    
+    // Loads a level by scene name.
     public void LoadLevel(string levelName)
     {
+        if (levelName == null)
+            return;
         this.currentSceneName = levelName;
         SceneManager.LoadScene(levelName, LoadSceneMode.Single);
+        print($"Successfully loaded level {levelName}");
     }
 
+    // Reloads the current level.
     public void ReloadLevel()
     {
         if (this.currentSceneName != null)
             LoadLevel(this.currentSceneName);
     }
 
+    // Returns the name of the current scene.
     public string GetCurrentScene()
     {
         return this.currentSceneName;
