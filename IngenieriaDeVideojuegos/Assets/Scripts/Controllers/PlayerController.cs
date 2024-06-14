@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     #region Variables
 
     [SerializeField] private Rigidbody rigidBody;
+    [SerializeField] private BulletSpawnerController bulletSpawner;
 
     [SerializeField] private float linearAcceleration;
     [SerializeField] private float angularAcceleration;
@@ -69,6 +70,8 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.D)) movementVector.y += 1;
         if (Input.GetKey(KeyCode.A)) movementVector.y -= 1;
+
+        if (Input.GetKeyDown(KeyCode.Return)) Shoot();
     }
 
     private void UpdateMovement(float delta)
@@ -83,6 +86,13 @@ public class PlayerController : MonoBehaviour
         }
 
         this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, this.startingZ);
+    }
+
+    private void Shoot()
+    {
+        if (this.bulletSpawner == null)
+            return;
+        bulletSpawner.SpawnBullet();
     }
 
     #endregion
