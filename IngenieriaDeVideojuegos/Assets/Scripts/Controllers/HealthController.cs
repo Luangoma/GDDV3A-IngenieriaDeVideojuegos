@@ -11,6 +11,7 @@ public class HealthController : MonoBehaviour
     [SerializeField] private float maxHealth;
 
     public Action<float, float> OnValueChanged;
+    public Action OnDeath;
 
     #endregion
 
@@ -36,6 +37,8 @@ public class HealthController : MonoBehaviour
         float oldValue = this.currentHealth;
         this.currentHealth = Mathf.Clamp(health, 0, maxHealth);
         OnValueChanged?.Invoke(oldValue, currentHealth);
+        if (this.IsDead())
+            OnDeath?.Invoke();
     }
 
     public float GetHealth()
