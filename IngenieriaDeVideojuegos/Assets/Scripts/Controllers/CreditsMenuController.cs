@@ -6,9 +6,6 @@ using UnityEngine.SceneManagement;
 public class CreditsMenuController : MonoBehaviour
 {
     #region Variables
-
-    [SerializeField] private string returnToMenuName;
-
     #endregion
 
     #region MonoBehaviour
@@ -38,7 +35,7 @@ public class CreditsMenuController : MonoBehaviour
 
     private void ReturnToMenu()
     {
-        SceneManager.LoadScene(this.returnToMenuName, LoadSceneMode.Single);
+        LevelManager.Instance.LoadLevel(LevelManager.Instance.MenuSceneName);
     }
 
     #endregion

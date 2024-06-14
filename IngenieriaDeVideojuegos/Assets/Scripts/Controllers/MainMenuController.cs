@@ -9,9 +9,6 @@ public class MainMenuController : MonoBehaviour
 
     #endregion
 
-    [SerializeField] private string playSceneName;
-    [SerializeField] private string creditsSceneName;
-
     #region MonoBehaviour
 
     void Start()
@@ -49,8 +46,7 @@ public class MainMenuController : MonoBehaviour
 
     private void PlayGame()
     {
-        if(this.playSceneName != null)
-            SceneManager.LoadScene(this.playSceneName, LoadSceneMode.Single);
+        LevelManager.Instance.LoadLevel(LevelManager.Instance.PlaySceneNames[0]);
     }
 
     private void QuitGame()
@@ -60,8 +56,7 @@ public class MainMenuController : MonoBehaviour
 
     private void LoadCredits()
     {
-        if(this.playSceneName != null)
-            SceneManager.LoadScene(this.creditsSceneName, LoadSceneMode.Single);
+        LevelManager.Instance.LoadLevel(LevelManager.Instance.CreditsSceneName);
     }
 
     #endregion
