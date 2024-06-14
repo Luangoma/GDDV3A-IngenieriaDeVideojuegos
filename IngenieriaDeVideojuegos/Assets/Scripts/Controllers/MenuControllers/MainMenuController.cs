@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -30,9 +31,14 @@ public class MainMenuController : MonoBehaviour
         PlayGame();
     }
 
+    public void OnOptionsButtonPressed()
+    {
+        LoadOptionsMenu();
+    }
+
     public void OnCreditsButtonPressed()
     {
-        LoadCredits();
+        LoadCreditsMenu();
     }
 
     public void OnQuitButtonPressed()
@@ -54,9 +60,14 @@ public class MainMenuController : MonoBehaviour
         Application.Quit();
     }
 
-    private void LoadCredits()
+    private void LoadCreditsMenu()
     {
         LevelManager.Instance.LoadLevel(LevelManager.Instance.CreditsSceneName);
+    }
+
+    private void LoadOptionsMenu()
+    {
+        LevelManager.Instance.LoadLevel(LevelManager.Instance.OptionsSceneName);
     }
 
     #endregion
