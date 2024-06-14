@@ -66,6 +66,7 @@
     <Compile Include="Assets\Scripts\Interfaces\IPooleableObject.cs" />
     <Compile Include="Assets\Scripts\Managers\CameraManager.cs" />
     <Compile Include="Assets\Scripts\Utility\Singleton.cs" />
+    <Compile Include="Assets\Scripts\Controllers\PlayerFlameController.cs" />
     <Compile Include="Assets\Scripts\Utility\asteroidSpawner.cs" />
     <Compile Include="Assets\Scripts\Controllers\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Controllers\DeathHUDController.cs" />

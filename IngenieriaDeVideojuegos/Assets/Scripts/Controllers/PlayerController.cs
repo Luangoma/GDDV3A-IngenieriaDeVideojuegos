@@ -46,9 +46,16 @@ public class PlayerController : MonoBehaviour
 
     #region PublicMethods
 
-    //public Vector2 getMovementVector() { 
-    //    return movementVector;
-    //}
+    public float GetLinearVelocity()
+    {
+        return this.rigidBody.velocity.magnitude;
+    }
+
+    public float GetForwardLinearVelocity()
+    {
+        return Vector3.Project(this.rigidBody.velocity, this.transform.up).magnitude;
+    }
+
     #endregion
 
     #region PrivateMethods
