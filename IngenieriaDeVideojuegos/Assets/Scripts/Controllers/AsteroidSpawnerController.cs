@@ -34,7 +34,7 @@ public class AsteroidSpawnerController : MonoBehaviour
 
     void SpawnAsteroid()
     {
-        print("spawning");
+        // print("spawning");
         asteroidPool.Get();
     }
 

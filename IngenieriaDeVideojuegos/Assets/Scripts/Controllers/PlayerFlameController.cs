@@ -51,7 +51,7 @@ public class PlayerFlameController : MonoBehaviour
     {
         length = Mathf.Clamp(length, minLength, maxLength);
         this.transform.localScale = new Vector3(this.transform.localScale.x, length, this.transform.localScale.z);
-        print($"length is : {this.transform.localScale.y}");
+        // print($"length is : {this.transform.localScale.y}");
     }
 
     #endregion
