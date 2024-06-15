@@ -10,8 +10,9 @@ public class Asteroid : MonoBehaviour, IObstacle
     #region Variables
 
     [SerializeField] public ScriptableObjectObstacle _scriptableObjectObstacle;
-    
-    public Action onFarFromPlayer;
+    [SerializeField] private Rigidbody rigidBody;
+
+    public Action OnFarFromPlayer;
 
     #endregion
 
@@ -19,7 +20,6 @@ public class Asteroid : MonoBehaviour, IObstacle
 
     void Start()
     {
-        //speed = 100.0f;
         if (_scriptableObjectObstacle.target == null)
         {
             _scriptableObjectObstacle.target = GameObject.FindWithTag("Player");
@@ -38,14 +38,15 @@ public class Asteroid : MonoBehaviour, IObstacle
     public void FollowTarget(float delta)
     {
         Vector2 heading = _scriptableObjectObstacle.target.transform.position - transform.position;
+        float distance = heading.magnitude;
+        float factor = 1 / (distance + 0.01f); // add a small value to prevent divisor from being 0.
 
-        // Los asteroides se mueven hacia la nave mas rapido a mas lejos estan
-        float step = heading.magnitude / _scriptableObjectObstacle.speed * delta;
-        transform.position = Vector3.MoveTowards(transform.position, _scriptableObjectObstacle.target.transform.position, step);
+        rigidBody.AddForce(heading.normalized * delta * _scriptableObjectObstacle.speed * factor, ForceMode.VelocityChange);
 
-        if (heading.magnitude > 250)
+
+        if (distance > 250)
         {
-            onFarFromPlayer?.Invoke();
+            OnFarFromPlayer?.Invoke();
         }
     }
 

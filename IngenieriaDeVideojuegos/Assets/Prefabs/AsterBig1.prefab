@@ -52,7 +52,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _scriptableObjectObstacle: {fileID: 11400000, guid: d64753c22670dac48a2f0ba48ebe9d53,
     type: 2}
-  health: {fileID: 4684569295472338731}
+  rigidBody: {fileID: 2039292760447109526}
 --- !u!54 &2039292760447109526
 Rigidbody:
   m_ObjectHideFlags: 0
