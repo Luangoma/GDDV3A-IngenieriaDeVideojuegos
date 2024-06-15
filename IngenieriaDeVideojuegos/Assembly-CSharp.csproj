@@ -82,6 +82,7 @@
     <Compile Include="Assets\Scripts\Interfaces\IPickUp.cs" />
     <Compile Include="Assets\Scripts\Managers\GameManager.cs" />
     <Compile Include="Assets\Scripts\Controllers\BulletSpawnerController.cs" />
+    <Compile Include="Assets\Scripts\Utility\ObservableVariable.cs" />
     <Compile Include="Assets\Scripts\Controllers\PauseMenuController.cs" />
     <Compile Include="Assets\Scripts\Managers\LevelManager.cs" />
     <Compile Include="Assets\Scripts\Utility\ObjectSpawner.cs" />
