@@ -9,6 +9,7 @@ public class HUDManager : Singleton<HUDManager>
     [SerializeField] private PlayerHUDController playerHUD;
     [SerializeField] private PauseMenuController pauseMenuHUD;
     [SerializeField] private DeathHUDController deathHUD;
+    [SerializeField] private VictoryHUDController victoryHUD;
 
     private bool isPaused = false;
     private bool canPause = true;
@@ -58,11 +59,20 @@ public class HUDManager : Singleton<HUDManager>
         deathHUD.SetVisible(true);
     }
 
+    public void DisplayPlayerVictory()
+    {
+        this.canPause = false;
+        Resume();
+        HideAllHUDs();
+        victoryHUD.SetVisible(true);
+    }
+
     public void AttachHUDS(PlayerController player)
     {
         this.playerHUD?.SetPlayerReference(player);
         this.pauseMenuHUD?.SetPlayerReference(player);
         this.deathHUD?.SetPlayerReference(player);
+        this.victoryHUD?.SetPlayerReference(player);
     }
 
     #endregion
@@ -74,6 +84,7 @@ public class HUDManager : Singleton<HUDManager>
         this.playerHUD?.SetVisible(false);
         this.pauseMenuHUD?.SetVisible(false);
         this.deathHUD?.SetVisible(false);
+        this.victoryHUD?.SetVisible(false);
     }
 
     private void SwitchPauseMenu()

@@ -54,6 +54,8 @@ public class GameManager : Singleton<GameManager>
     {
         this.score.Value = 0;
 
+        this.score.OnValueChanged += OnScoreChanged;
+
         GameObject obj = GameObject.FindWithTag("Player");
 
         if (obj != null)
@@ -78,7 +80,17 @@ public class GameManager : Singleton<GameManager>
     }
 
     private void PlayerHasWon()
-    { }
+    {
+        HUDManager.Instance.DisplayPlayerVictory();
+    }
+
+    private void OnScoreChanged(int oldScore, int newScore)
+    {
+        if (newScore >= targetScore)
+        {
+            PlayerHasWon();
+        }
+    }
 
     #endregion
 }
