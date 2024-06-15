@@ -391,9 +391,9 @@ MonoBehaviour:
   asteroidPrefab: {fileID: 2123067323010305577, guid: 3b1e9e1747c56ae4fa70ccb863c08d91,
     type: 3}
   playerReference: {fileID: 664635252}
-  initialCapacity: 50
-  maxCapacity: 50
-  spawnRate: 1
+  initialCapacity: 80
+  maxCapacity: 80
+  spawnRate: 0.02
   spawnRadiusMax: 250
   spawnRadiusMin: 50
   despawnDistance: 250
