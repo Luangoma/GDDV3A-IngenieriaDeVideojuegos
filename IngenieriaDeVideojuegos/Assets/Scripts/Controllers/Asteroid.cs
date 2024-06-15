@@ -107,30 +107,33 @@ public class Asteroid : MonoBehaviour, IObstacle
     private void ObstacleBehaviour(float delta)
     {
         elapsedTime += delta;
-        float time = 8.0f;
-        if (elapsedTime > time)
+        float time = 5.0f;
+        if (elapsedTime > time && GetDistanceFromTarget() <= 65.0f)
         {
             elapsedTime -= time;
             
             Vector3 dir = (_scriptableObjectObstacle.Target.transform.position - transform.position).normalized;
             
-            if (this.asteroidType == AsteroidType.Projectile)
+            switch(this.asteroidType)
             {
-                rigidBody.AddForce(dir * delta * _scriptableObjectObstacle.GetSpeed(asteroidType) * 12, ForceMode.VelocityChange);
-            }
-            else
-            if (this.asteroidType == AsteroidType.Shooter)
-            {
-                var bulletGameObject = PoolManager.Instance?.BulletSpawner?.BulletPool.Get().GetObject();
-                if (bulletGameObject != null)
+                default:
                 {
-                    bulletGameObject.transform.position = transform.position + dir * 5;
-                    bulletGameObject.transform.rotation = Quaternion.LookRotation(Vector3.forward, dir);
-                    print("bullet is OKKKKKK");
+                    break;
                 }
-                else
+                case AsteroidType.Projectile:
                 {
-                    print("bullet is null!!!!");
+                    rigidBody.AddForce(dir * delta * _scriptableObjectObstacle.GetSpeed(asteroidType) * 12, ForceMode.VelocityChange);
+                    break;
+                }
+                case AsteroidType.Shooter:
+                {
+                    var bulletGameObject = PoolManager.Instance?.BulletSpawner?.BulletPool.Get().GetObject();
+                    if (bulletGameObject != null)
+                    {
+                        bulletGameObject.transform.position = transform.position + dir * 5;
+                        bulletGameObject.transform.rotation = Quaternion.LookRotation(Vector3.forward, dir);
+                    }
+                    break;
                 }
             }
         }
