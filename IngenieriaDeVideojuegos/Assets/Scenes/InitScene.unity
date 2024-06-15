@@ -597,10 +597,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuSceneName: MainMenu
+  levelSelectSceneName: LevelSelectMenu
   optionsSceneName: OptionsMenu
   creditsSceneName: CreditsMenu
   playSceneNames:
-  - SampleScene
+  - Map1
+  - Map2
 --- !u!4 &1098871290
 Transform:
   m_ObjectHideFlags: 0
