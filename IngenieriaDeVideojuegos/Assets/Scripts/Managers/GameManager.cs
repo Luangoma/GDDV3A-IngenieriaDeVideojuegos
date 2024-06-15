@@ -10,6 +10,8 @@ public class GameManager : Singleton<GameManager>
     private HealthController playerHealthController;
 
     private int score;
+    
+    [SerializeField] private int targetScore;
 
     #endregion
 
@@ -22,7 +24,7 @@ public class GameManager : Singleton<GameManager>
 
     void Update()
     {
-        
+
     }
 
     #endregion
@@ -37,6 +39,11 @@ public class GameManager : Singleton<GameManager>
     public void IncrementScore()
     {
         this.score++;
+    }
+
+    public int GetTargetScore()
+    {
+        return this.targetScore;
     }
 
     #endregion
@@ -69,6 +76,9 @@ public class GameManager : Singleton<GameManager>
     {
         HUDManager.Instance.DisplayPlayerDeath();
     }
+
+    private void PlayerHasWon()
+    { }
 
     #endregion
 }

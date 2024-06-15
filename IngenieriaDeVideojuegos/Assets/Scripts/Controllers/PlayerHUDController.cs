@@ -16,6 +16,7 @@ public class PlayerHUDController : MonoBehaviour, IHUD
 
     [Header("HUD Score Data")]
     [SerializeField] private TMP_Text scoreText;
+    [SerializeField] private TMP_Text targetScoreText;
 
     private PlayerController playerController;
     private HealthController healthController;
@@ -26,7 +27,7 @@ public class PlayerHUDController : MonoBehaviour, IHUD
 
     void Start()
     {
-        
+        UpdateTargetScore();
     }
 
     void Update()
@@ -85,6 +86,11 @@ public class PlayerHUDController : MonoBehaviour, IHUD
     private void UpdateScore()
     {
         this.scoreText.text = "Score : " + GameManager.Instance.GetScore();
+    }
+
+    private void UpdateTargetScore()
+    {
+        this.targetScoreText.text = "Target : " + GameManager.Instance.GetTargetScore();
     }
 
     #endregion
