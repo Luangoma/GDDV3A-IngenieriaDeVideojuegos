@@ -8,11 +8,13 @@ public class DebugManager : SingletonPersistent<DebugManager>
 
     [SerializeField] private bool debugEnabled = false;
 
+    private static bool isDebugEnabled = false;
+
     #endregion
 
     #region GettersAndSetters
 
-    public bool DebugEnabled { get { return debugEnabled; } set { debugEnabled = value; } }
+    public static bool DebugEnabled { get { return isDebugEnabled; } set { isDebugEnabled = value; } }
 
     #endregion
 
@@ -20,7 +22,7 @@ public class DebugManager : SingletonPersistent<DebugManager>
 
     void Start()
     {
-        
+        DebugManager.isDebugEnabled = DebugManager.Instance.debugEnabled;
     }
 
     void Update()

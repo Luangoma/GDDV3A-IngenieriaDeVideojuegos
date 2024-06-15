@@ -79,7 +79,7 @@ public class PlayerController : MonoBehaviour
         }
 
         // DEBUG INPUT : DISABLE IN PRODUCTION!!!
-        if (DebugManager.Instance != null && DebugManager.Instance.DebugEnabled)
+        if (DebugManager.DebugEnabled)
         {
             if (Input.GetKeyDown(KeyCode.P)) this.healthController.Damage(10);
             if (Input.GetKeyDown(KeyCode.O)) this.healthController.Heal(10);
