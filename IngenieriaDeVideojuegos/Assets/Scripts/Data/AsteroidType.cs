@@ -3,9 +3,11 @@ using UnityEngine;
 
 public enum AsteroidType
 {
+    Default = 0,
     Projectile,
     Explosive,
-    Shooter
+    Shooter,
+    NUM_TYPES
 }
 
 [Serializable]

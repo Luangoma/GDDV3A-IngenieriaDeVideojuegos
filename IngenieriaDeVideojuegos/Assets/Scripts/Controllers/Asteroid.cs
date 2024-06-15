@@ -3,17 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements.Experimental;
 using System;
-using UnityEngine.Pool;
 
 public class Asteroid : MonoBehaviour, IObstacle
 {
     #region Variables
 
+    [Header("Scriptable Object Shared Data")]
     [SerializeField] public ScriptableObjectObstacle _scriptableObjectObstacle;
+
+    [Header("Components")]
     [SerializeField] private Rigidbody rigidBody;
+    [SerializeField] private SpriteRenderer spriteOn;
+    [SerializeField] private SpriteRenderer spriteOff;
+
+    [Header("Obstacle Type Data")]
     [SerializeField] private AsteroidType asteroidType;
 
     public Action<float> OnUpdate;
+
+    private float elapsedTime = 0.0f;
 
     #endregion
 
@@ -31,6 +39,7 @@ public class Asteroid : MonoBehaviour, IObstacle
     {
         float delta = Time.deltaTime;
         FollowTarget(delta);
+        ObstacleBehaviour(delta);
         OnUpdate?.Invoke(delta);
     }
 
@@ -73,6 +82,39 @@ public class Asteroid : MonoBehaviour, IObstacle
             healthController.Damage(impactVelocity / 5);
     }
 
+    public void SetType(AsteroidType type)
+    {
+        UpdateType(type);
+    }
+
+    public void SetRandomType()
+    {
+        AsteroidType chosenType = (AsteroidType)UnityEngine.Random.Range((int)(AsteroidType.Default) + 1, (int)(AsteroidType.NUM_TYPES));
+        SetType(chosenType);
+    }
+
+    #endregion
+
+    #region PrivateMethods
+
+    private void UpdateType(AsteroidType type)
+    {
+        this.asteroidType = type;
+        this.spriteOn.sprite = _scriptableObjectObstacle.GetSpriteOn(type);
+        this.spriteOff.sprite = _scriptableObjectObstacle.GetSpriteOff(type);
+    }
+
+    private void ObstacleBehaviour(float delta)
+    {
+        elapsedTime += delta;
+        if (this.asteroidType == AsteroidType.Projectile && elapsedTime >= 5.0f)
+        {
+            elapsedTime -= 5.0f;
+            Vector3 dir = (_scriptableObjectObstacle.Target.transform.position - transform.position).normalized;
+            rigidBody.AddForce(dir * delta * _scriptableObjectObstacle.GetSpeed(asteroidType) * 12, ForceMode.VelocityChange);
+            print("GIVING A LIL PUSH!");
+        }
+    }
 
     #endregion
 

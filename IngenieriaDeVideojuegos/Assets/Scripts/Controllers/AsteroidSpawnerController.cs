@@ -46,6 +46,7 @@ public class AsteroidSpawnerController : MonoBehaviour
     private GameObject CreateAsteroid()
     {
         GameObject asteroid = Instantiate(asteroidPrefab);
+        asteroid.GetComponent<Asteroid>().SetRandomType();
         asteroid.SetActive(false);
         return asteroid;
     }
