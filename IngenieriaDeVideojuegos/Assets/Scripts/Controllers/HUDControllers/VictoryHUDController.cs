@@ -37,8 +37,19 @@ public class VictoryHUDController : MonoBehaviour, IHUD
         return this.canvas.gameObject.activeSelf;
     }
 
+    public void OnReturnToMenuButtonPressed()
+    {
+        ReturnToMenu();
+    }
+
     #endregion
 
     #region PrivateMethods
+
+    private void ReturnToMenu()
+    {
+        LevelManager.Instance.ReturnToMenu();
+    }
+
     #endregion
 }

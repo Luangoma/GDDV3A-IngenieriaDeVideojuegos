@@ -13,6 +13,8 @@ public class GameManager : Singleton<GameManager>
     
     [SerializeField] private int targetScore;
 
+    private bool gameHasFinished = false;
+
     #endregion
 
     #region MonoBehaviour
@@ -70,8 +72,11 @@ public class GameManager : Singleton<GameManager>
 
     private void OnPlayerHealthChanged(float oldHealth, float newHealth)
     {
-        if (newHealth <= 0)
+        if (newHealth <= 0 && !gameHasFinished)
+        {
             PlayerHasDied();
+            gameHasFinished = true;
+        }
     }
 
     private void PlayerHasDied()
@@ -86,9 +91,10 @@ public class GameManager : Singleton<GameManager>
 
     private void OnScoreChanged(int oldScore, int newScore)
     {
-        if (newScore >= targetScore)
+        if (newScore >= targetScore && !gameHasFinished)
         {
             PlayerHasWon();
+            gameHasFinished = true;
         }
     }
 
