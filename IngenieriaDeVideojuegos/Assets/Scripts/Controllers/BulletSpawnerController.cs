@@ -17,6 +17,12 @@ public class BulletSpawnerController : MonoBehaviour
 
     #endregion
 
+    #region Getters
+
+    public ObjectPool<GameObject> BulletPool { get { return bulletPool; } }
+
+    #endregion
+
     #region MonoBehaviour
 
     void Start()
