@@ -7,7 +7,7 @@ public class HUDManager : Singleton<HUDManager>
     #region Variables
 
     [SerializeField] private PlayerHUDController playerHUD;
-    [SerializeField] private PauseMenuController pauseMenuHUD;
+    [SerializeField] private PauseHUDController pauseMenuHUD;
     [SerializeField] private DeathHUDController deathHUD;
     [SerializeField] private VictoryHUDController victoryHUD;
 

@@ -82,7 +82,6 @@
     <Compile Include="Assets\Scripts\Utility\CameraTarget.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IPickUp.cs" />
     <Compile Include="Assets\Scripts\Managers\GameManager.cs" />
-    <Compile Include="Assets\Scripts\Controllers\HUDControllers\PauseMenuController.cs" />
     <Compile Include="Assets\Scripts\Controllers\BulletSpawnerController.cs" />
     <Compile Include="Assets\Scripts\Utility\ObservableVariable.cs" />
     <Compile Include="Assets\Scripts\Controllers\SceneControllers\MenuControllers\MainMenuController.cs" />
@@ -96,6 +95,7 @@
     <Compile Include="Assets\Scripts\Controllers\HUDControllers\PlayerHUDController.cs" />
     <Compile Include="Assets\Scripts\deprecated\spaceshipMovement.cs" />
     <Compile Include="Assets\Scripts\Utility\Asteroid.cs" />
+    <Compile Include="Assets\Scripts\Controllers\HUDControllers\PauseHUDController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
