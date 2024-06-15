@@ -973,7 +973,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34c8b5a6c143bf04cb232ca6b381f0ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 2786768185776910794, guid: 1fb05fb6521bf714c9b119e246fcc7eb,
+  bulletPrefab: {fileID: 2786768185776910794, guid: 7d5e4b53a4e6c5044b3b76aeba20ab9e,
     type: 3}
   maxBullets: 200
   bulletSpawnTransformList:

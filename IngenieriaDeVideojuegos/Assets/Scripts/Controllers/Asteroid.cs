@@ -122,7 +122,7 @@ public class Asteroid : MonoBehaviour, IObstacle
                 }
                 case AsteroidType.Projectile:
                 {
-                    rigidBody.AddForce(dir * delta * _scriptableObjectObstacle.GetSpeed(asteroidType) * 12, ForceMode.VelocityChange);
+                    rigidBody.AddForce(dir * delta * _scriptableObjectObstacle.GetSpeed(asteroidType) * 1.2f, ForceMode.VelocityChange);
                     break;
                 }
                 case AsteroidType.Shooter:
