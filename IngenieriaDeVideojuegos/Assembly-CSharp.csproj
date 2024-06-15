@@ -93,6 +93,7 @@
     <Compile Include="Assets\Scripts\Controllers\DamageController.cs" />
     <Compile Include="Assets\Scripts\Controllers\SceneControllers\InitSceneController.cs" />
     <Compile Include="Assets\Scripts\Controllers\HUDControllers\PlayerHUDController.cs" />
+    <Compile Include="Assets\Scripts\Controllers\SceneControllers\MenuControllers\LevelSelectMenuController.cs" />
     <Compile Include="Assets\Scripts\ScriptableObjects\ScriptableObjectObstacle.cs" />
     <Compile Include="Assets\Scripts\Controllers\HUDControllers\PauseHUDController.cs" />
   </ItemGroup>
