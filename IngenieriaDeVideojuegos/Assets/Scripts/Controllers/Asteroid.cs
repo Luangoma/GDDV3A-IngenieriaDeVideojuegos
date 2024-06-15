@@ -11,6 +11,7 @@ public class Asteroid : MonoBehaviour, IObstacle
 
     [SerializeField] public ScriptableObjectObstacle _scriptableObjectObstacle;
     [SerializeField] private Rigidbody rigidBody;
+    [SerializeField] private AsteroidType asteroidType;
 
     public Action<float> OnUpdate;
 
@@ -20,9 +21,9 @@ public class Asteroid : MonoBehaviour, IObstacle
 
     void Start()
     {
-        if (_scriptableObjectObstacle.target == null)
+        if (_scriptableObjectObstacle.Target == null)
         {
-            _scriptableObjectObstacle.target = GameObject.FindWithTag("Player");
+            _scriptableObjectObstacle.Target = GameObject.FindWithTag("Player");
         }
     }
 
@@ -39,15 +40,15 @@ public class Asteroid : MonoBehaviour, IObstacle
 
     public float GetDistanceFromTarget()
     {
-        return (_scriptableObjectObstacle.target.transform.position - transform.position).magnitude;
+        return (_scriptableObjectObstacle.Target.transform.position - transform.position).magnitude;
     }
 
     public void FollowTarget(float delta)
     {
-        Vector2 heading = _scriptableObjectObstacle.target.transform.position - transform.position;
+        Vector2 heading = _scriptableObjectObstacle.Target.transform.position - transform.position;
         float distance = heading.magnitude;
         float factor = 1 / (distance + 0.01f); // add a small value to prevent divisor from being 0.
-        rigidBody.AddForce(heading.normalized * delta * _scriptableObjectObstacle.speed * factor, ForceMode.VelocityChange);
+        rigidBody.AddForce(heading.normalized * delta * _scriptableObjectObstacle.GetSpeed(asteroidType) * factor, ForceMode.VelocityChange);
     }
 
     public void OnCollisionEnter(Collision collision)
