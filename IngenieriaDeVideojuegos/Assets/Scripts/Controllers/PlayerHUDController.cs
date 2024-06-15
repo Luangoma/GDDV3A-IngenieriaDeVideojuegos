@@ -27,6 +27,8 @@ public class PlayerHUDController : MonoBehaviour, IHUD
 
     void Start()
     {
+        InitObservers();
+        UpdateScore(0);
         UpdateTargetScore();
     }
 
@@ -75,7 +77,6 @@ public class PlayerHUDController : MonoBehaviour, IHUD
         if (!AllComponentsAreValid())
             return;
         UpdateHealthBar(delta);
-        UpdateScore();
     }
 
     private void UpdateHealthBar(float delta)
@@ -83,14 +84,24 @@ public class PlayerHUDController : MonoBehaviour, IHUD
         this.healthBar.fillAmount = Mathf.Lerp(this.healthBar.fillAmount, this.healthController.GetHealthPercentage(), delta * 10);
     }
 
-    private void UpdateScore()
+    private void UpdateScore(int score)
     {
-        this.scoreText.text = "Score : " + GameManager.Instance.GetScore();
+        this.scoreText.text = "Score : " + score;
     }
 
     private void UpdateTargetScore()
     {
         this.targetScoreText.text = "Target : " + GameManager.Instance.GetTargetScore();
+    }
+
+    private void InitObservers()
+    {
+        GameManager.Instance.score.OnValueChanged += OnScoreChanged;
+    }
+
+    private void OnScoreChanged(int oldScore, int newScore)
+    {
+        UpdateScore(newScore);
     }
 
     #endregion

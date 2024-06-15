@@ -13,12 +13,22 @@ public class ObservableVariable<T>
 
     #region GettersAndSetters
     
-    T Value { get { return data; } set { T temp = data; data = value; OnValueChanged?.Invoke(temp, data); } }
-    
+    public T Value { get { return data; } set { T temp = data; data = value; OnValueChanged?.Invoke(temp, data); } }
+
+    #endregion
+
+    #region Constructors
+
+    public ObservableVariable(T initialValue = default(T))
+    {
+        this.data = initialValue;
+        OnValueChanged = null;
+    }
+
     #endregion
 
     #region PublicMethods
-    
+
     public void ClearObservers()
     {
         OnValueChanged = null;

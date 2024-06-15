@@ -9,7 +9,7 @@ public class GameManager : Singleton<GameManager>
     private PlayerController playerReference;
     private HealthController playerHealthController;
 
-    private int score;
+    public ObservableVariable<int> score = new ObservableVariable<int>();
     
     [SerializeField] private int targetScore;
 
@@ -33,12 +33,12 @@ public class GameManager : Singleton<GameManager>
 
     public int GetScore()
     {
-        return this.score;
+        return this.score.Value;
     }
 
     public void IncrementScore()
     {
-        this.score++;
+        this.score.Value++;
     }
 
     public int GetTargetScore()
@@ -52,7 +52,7 @@ public class GameManager : Singleton<GameManager>
 
     private void InitVariables()
     {
-        this.score = 0;
+        this.score.Value = 0;
 
         GameObject obj = GameObject.FindWithTag("Player");
 
