@@ -108,7 +108,7 @@ public class Asteroid : MonoBehaviour, IObstacle
     {
         elapsedTime += delta;
         float time = 5.0f;
-        if (elapsedTime > time && GetDistanceFromTarget() <= 65.0f)
+        if (elapsedTime > time && GetDistanceFromTarget() <= 45.0f)
         {
             elapsedTime -= time;
             
