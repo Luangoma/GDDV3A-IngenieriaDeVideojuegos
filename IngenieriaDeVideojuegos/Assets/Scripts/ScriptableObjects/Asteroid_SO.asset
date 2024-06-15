@@ -18,12 +18,12 @@ MonoBehaviour:
     spriteOn: {fileID: 21300000, guid: 1edd7a4faa7aa8045a886051fc8c67a0, type: 3}
     spriteOff: {fileID: 21300000, guid: c0b4f59bca44af54eb57ccff53c00845, type: 3}
   projectileData:
-    speed: 100
+    speed: 800
     scale: 0.4
     spriteOn: {fileID: 21300000, guid: 12c30ea8b76d2ae4abe380ee0049df72, type: 3}
     spriteOff: {fileID: 21300000, guid: 62a498dc7edbd69448d97fc1ff1c8457, type: 3}
   explosiveData:
-    speed: 40
+    speed: 100
     scale: 1
     spriteOn: {fileID: 21300000, guid: 1edd7a4faa7aa8045a886051fc8c67a0, type: 3}
     spriteOff: {fileID: 21300000, guid: c0b4f59bca44af54eb57ccff53c00845, type: 3}
