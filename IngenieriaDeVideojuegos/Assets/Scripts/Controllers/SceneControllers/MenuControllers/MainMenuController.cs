@@ -52,7 +52,7 @@ public class MainMenuController : MonoBehaviour
 
     private void PlayGame()
     {
-        LevelManager.Instance.LoadLevel(LevelManager.Instance.PlaySceneNames[0]);
+        LevelManager.Instance.LoadLevel(LevelManager.Instance.LevelSelectSceneName);
     }
 
     private void QuitGame()
