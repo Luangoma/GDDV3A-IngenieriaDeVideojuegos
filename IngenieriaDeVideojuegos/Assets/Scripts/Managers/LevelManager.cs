@@ -8,6 +8,7 @@ public class LevelManager : SingletonPersistent<LevelManager>
     #region Variables
 
     [SerializeField] private string menuSceneName;
+    [SerializeField] private string levelSelectSceneName;
     [SerializeField] private string optionsSceneName;
     [SerializeField] private string creditsSceneName;
     [SerializeField] private string[] playSceneNames;
@@ -19,6 +20,7 @@ public class LevelManager : SingletonPersistent<LevelManager>
     #region PublicGetters
 
     public string MenuSceneName { get { return menuSceneName; } }
+    public string LevelSelectSceneName { get { return levelSelectSceneName; } }
     public string OptionsSceneName { get { return optionsSceneName; } }
     public string CreditsSceneName { get { return creditsSceneName; } }
     public string CurrentSceneName { get { return currentSceneName; } }
