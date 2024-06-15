@@ -59,8 +59,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Controllers\BulletController.cs" />
+    <Compile Include="Assets\Scripts\Controllers\HUDControllers\DeathHUDController.cs" />
     <Compile Include="Assets\Scripts\Utility\PooleableObject.cs" />
-    <Compile Include="Assets\Scripts\Controllers\PlayerHUDController.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IPrototype.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IHUD.cs" />
     <Compile Include="Assets\Scripts\Controllers\AsteroidSpawnerController.cs" />
@@ -71,7 +71,7 @@
     <Compile Include="Assets\Scripts\Controllers\PlayerFlameController.cs" />
     <Compile Include="Assets\Scripts\Utility\asteroidSpawner.cs" />
     <Compile Include="Assets\Scripts\Controllers\PlayerController.cs" />
-    <Compile Include="Assets\Scripts\Controllers\DeathHUDController.cs" />
+    <Compile Include="Assets\Scripts\Controllers\HUDControllers\VictoryHUDController.cs" />
     <Compile Include="Assets\Scripts\Utility\ScriptableObjectObstacle.cs" />
     <Compile Include="Assets\Scripts\Managers\DebugManager.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
@@ -82,18 +82,18 @@
     <Compile Include="Assets\Scripts\Utility\CameraTarget.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IPickUp.cs" />
     <Compile Include="Assets\Scripts\Managers\GameManager.cs" />
+    <Compile Include="Assets\Scripts\Controllers\HUDControllers\PauseMenuController.cs" />
     <Compile Include="Assets\Scripts\Controllers\BulletSpawnerController.cs" />
     <Compile Include="Assets\Scripts\Utility\ObservableVariable.cs" />
     <Compile Include="Assets\Scripts\Controllers\SceneControllers\MenuControllers\MainMenuController.cs" />
-    <Compile Include="Assets\Scripts\Controllers\PauseMenuController.cs" />
     <Compile Include="Assets\Scripts\Managers\LevelManager.cs" />
     <Compile Include="Assets\Scripts\Utility\ObjectSpawner.cs" />
     <Compile Include="Assets\Scripts\Utility\ObjectPool.cs" />
     <Compile Include="Assets\Scripts\Controllers\HealthController.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IObstacle.cs" />
     <Compile Include="Assets\Scripts\Controllers\DamageController.cs" />
-    <Compile Include="Assets\Scripts\Controllers\VictoryHUDController.cs" />
     <Compile Include="Assets\Scripts\Controllers\SceneControllers\InitSceneController.cs" />
+    <Compile Include="Assets\Scripts\Controllers\HUDControllers\PlayerHUDController.cs" />
     <Compile Include="Assets\Scripts\deprecated\spaceshipMovement.cs" />
     <Compile Include="Assets\Scripts\Utility\Asteroid.cs" />
   </ItemGroup>
