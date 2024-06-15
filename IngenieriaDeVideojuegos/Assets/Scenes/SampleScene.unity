@@ -452,7 +452,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cda98d6a998eed240aa4e7859d45634b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerReference: {fileID: 664635252}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -1247,6 +1246,45 @@ PrefabInstance:
       propertyPath: m_Name
       value: DeathHUD
       objectReference: {fileID: 0}
+    - target: {fileID: 2147527924588380730, guid: e5accff09ffa0c74193f150dce364c8f,
+        type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2147527924588380730, guid: e5accff09ffa0c74193f150dce364c8f,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3cd08428dbab2fd4690febdec2cf5c63,
+        type: 3}
+    - target: {fileID: 3406869011916539417, guid: e5accff09ffa0c74193f150dce364c8f,
+        type: 3}
+      propertyPath: m_Transition
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3406869011916539417, guid: e5accff09ffa0c74193f150dce364c8f,
+        type: 3}
+      propertyPath: m_SpriteState.m_PressedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0a58b516160534348b5659f26163855d,
+        type: 3}
+    - target: {fileID: 3406869011916539417, guid: e5accff09ffa0c74193f150dce364c8f,
+        type: 3}
+      propertyPath: m_SpriteState.m_HighlightedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: dd5d3e905a657c04bb6a8e5f818434f7,
+        type: 3}
+    - target: {fileID: 6006441350630397642, guid: e5accff09ffa0c74193f150dce364c8f,
+        type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6006441350630397642, guid: e5accff09ffa0c74193f150dce364c8f,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3cd08428dbab2fd4690febdec2cf5c63,
+        type: 3}
     - target: {fileID: 6163630836122633807, guid: e5accff09ffa0c74193f150dce364c8f,
         type: 3}
       propertyPath: m_RootOrder
@@ -1302,6 +1340,23 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8797645810474365993, guid: e5accff09ffa0c74193f150dce364c8f,
+        type: 3}
+      propertyPath: m_Transition
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8797645810474365993, guid: e5accff09ffa0c74193f150dce364c8f,
+        type: 3}
+      propertyPath: m_SpriteState.m_PressedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0a58b516160534348b5659f26163855d,
+        type: 3}
+    - target: {fileID: 8797645810474365993, guid: e5accff09ffa0c74193f150dce364c8f,
+        type: 3}
+      propertyPath: m_SpriteState.m_HighlightedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: dd5d3e905a657c04bb6a8e5f818434f7,
+        type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1315,6 +1370,101 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 25659831}
     m_Modifications:
+    - target: {fileID: 55408494406499420, guid: 62fb10f0ef996e94aa93cb222f53cfa7,
+        type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 55408494406499420, guid: 62fb10f0ef996e94aa93cb222f53cfa7,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3cd08428dbab2fd4690febdec2cf5c63,
+        type: 3}
+    - target: {fileID: 305670400214880348, guid: 62fb10f0ef996e94aa93cb222f53cfa7,
+        type: 3}
+      propertyPath: m_Transition
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 305670400214880348, guid: 62fb10f0ef996e94aa93cb222f53cfa7,
+        type: 3}
+      propertyPath: m_SpriteState.m_PressedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0a58b516160534348b5659f26163855d,
+        type: 3}
+    - target: {fileID: 305670400214880348, guid: 62fb10f0ef996e94aa93cb222f53cfa7,
+        type: 3}
+      propertyPath: m_SpriteState.m_HighlightedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: dd5d3e905a657c04bb6a8e5f818434f7,
+        type: 3}
+    - target: {fileID: 1450759177270614139, guid: 62fb10f0ef996e94aa93cb222f53cfa7,
+        type: 3}
+      propertyPath: m_Transition
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1450759177270614139, guid: 62fb10f0ef996e94aa93cb222f53cfa7,
+        type: 3}
+      propertyPath: m_SpriteState.m_PressedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0a58b516160534348b5659f26163855d,
+        type: 3}
+    - target: {fileID: 1450759177270614139, guid: 62fb10f0ef996e94aa93cb222f53cfa7,
+        type: 3}
+      propertyPath: m_SpriteState.m_HighlightedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: dd5d3e905a657c04bb6a8e5f818434f7,
+        type: 3}
+    - target: {fileID: 2534128815021698060, guid: 62fb10f0ef996e94aa93cb222f53cfa7,
+        type: 3}
+      propertyPath: m_Transition
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2534128815021698060, guid: 62fb10f0ef996e94aa93cb222f53cfa7,
+        type: 3}
+      propertyPath: m_SpriteState.m_PressedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0a58b516160534348b5659f26163855d,
+        type: 3}
+    - target: {fileID: 2534128815021698060, guid: 62fb10f0ef996e94aa93cb222f53cfa7,
+        type: 3}
+      propertyPath: m_SpriteState.m_HighlightedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: dd5d3e905a657c04bb6a8e5f818434f7,
+        type: 3}
+    - target: {fileID: 3734617273874470604, guid: 62fb10f0ef996e94aa93cb222f53cfa7,
+        type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3734617273874470604, guid: 62fb10f0ef996e94aa93cb222f53cfa7,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3cd08428dbab2fd4690febdec2cf5c63,
+        type: 3}
+    - target: {fileID: 3992046559981748741, guid: 62fb10f0ef996e94aa93cb222f53cfa7,
+        type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3992046559981748741, guid: 62fb10f0ef996e94aa93cb222f53cfa7,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3cd08428dbab2fd4690febdec2cf5c63,
+        type: 3}
+    - target: {fileID: 4154811829542166303, guid: 62fb10f0ef996e94aa93cb222f53cfa7,
+        type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4154811829542166303, guid: 62fb10f0ef996e94aa93cb222f53cfa7,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3cd08428dbab2fd4690febdec2cf5c63,
+        type: 3}
     - target: {fileID: 4603729150128783028, guid: 62fb10f0ef996e94aa93cb222f53cfa7,
         type: 3}
       propertyPath: m_Name
@@ -1375,6 +1525,23 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7677810886234953692, guid: 62fb10f0ef996e94aa93cb222f53cfa7,
+        type: 3}
+      propertyPath: m_Transition
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7677810886234953692, guid: 62fb10f0ef996e94aa93cb222f53cfa7,
+        type: 3}
+      propertyPath: m_SpriteState.m_PressedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0a58b516160534348b5659f26163855d,
+        type: 3}
+    - target: {fileID: 7677810886234953692, guid: 62fb10f0ef996e94aa93cb222f53cfa7,
+        type: 3}
+      propertyPath: m_SpriteState.m_HighlightedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: dd5d3e905a657c04bb6a8e5f818434f7,
+        type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
