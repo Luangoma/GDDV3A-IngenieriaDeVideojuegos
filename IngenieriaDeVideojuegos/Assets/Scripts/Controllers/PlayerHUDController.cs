@@ -18,9 +18,6 @@ public class PlayerHUDController : MonoBehaviour, IHUD
     [SerializeField] private TMP_Text scoreText;
     [SerializeField] private TMP_Text targetScoreText;
 
-    private PlayerController playerController;
-    private HealthController healthController;
-
     #endregion
 
     #region MonoBehaviour
@@ -51,12 +48,6 @@ public class PlayerHUDController : MonoBehaviour, IHUD
         this.canvas.gameObject.SetActive(visible);
     }
 
-    public void SetPlayerReference(PlayerController player)
-    {
-        this.playerController = player;
-        this.healthController = player.GetComponent<HealthController>();
-    }
-
     #endregion
 
     #region PrivateMethods
@@ -64,11 +55,12 @@ public class PlayerHUDController : MonoBehaviour, IHUD
     private bool AllComponentsAreValid()
     {
         return
+            HUDManager.Instance != null &&
+            HUDManager.Instance.GetPlayerController() != null &&
+            HUDManager.Instance.GetHealthController() != null &&
             this.canvas != null &&
             this.healthBar != null &&
-            this.scoreText != null &&
-            this.playerController != null &&
-            this.healthController != null
+            this.scoreText != null
             ;
     }
 
@@ -81,7 +73,7 @@ public class PlayerHUDController : MonoBehaviour, IHUD
 
     private void UpdateHealthBar(float delta)
     {
-        this.healthBar.fillAmount = Mathf.Lerp(this.healthBar.fillAmount, this.healthController.GetHealthPercentage(), delta * 10);
+        this.healthBar.fillAmount = Mathf.Lerp(this.healthBar.fillAmount, HUDManager.Instance.GetHealthController().GetHealthPercentage(), delta * 10);
     }
 
     private void UpdateScore(int score)

@@ -9,9 +9,6 @@ public class VictoryHUDController : MonoBehaviour, IHUD
     [Header("HUD Data")]
     [SerializeField] private Canvas canvas;
 
-
-    private PlayerController playerController;
-
     #endregion
 
     #region MonoBehaviour
@@ -38,11 +35,6 @@ public class VictoryHUDController : MonoBehaviour, IHUD
     public bool GetVisible()
     {
         return this.canvas.gameObject.activeSelf;
-    }
-
-    public void SetPlayerReference(PlayerController playerReference)
-    {
-        this.playerController = playerReference;
     }
 
     #endregion

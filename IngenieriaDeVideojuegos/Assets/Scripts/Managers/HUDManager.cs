@@ -14,6 +14,10 @@ public class HUDManager : Singleton<HUDManager>
     private bool isPaused = false;
     private bool canPause = true;
 
+
+    private PlayerController playerController;
+    private HealthController healthController;
+
     #endregion
 
     #region MonoBehaviour
@@ -32,6 +36,17 @@ public class HUDManager : Singleton<HUDManager>
     #endregion
 
     #region PublicMethods
+
+    public PlayerController GetPlayerController()
+    {
+        return this.playerController;
+    }
+
+    public HealthController GetHealthController()
+    {
+        return this.healthController;
+    }
+
 
     public void Resume()
     {
@@ -67,12 +82,10 @@ public class HUDManager : Singleton<HUDManager>
         victoryHUD.SetVisible(true);
     }
 
-    public void AttachHUDS(PlayerController player)
+    public void AttachHUDs(PlayerController player)
     {
-        this.playerHUD?.SetPlayerReference(player);
-        this.pauseMenuHUD?.SetPlayerReference(player);
-        this.deathHUD?.SetPlayerReference(player);
-        this.victoryHUD?.SetPlayerReference(player);
+        this.playerController = player;
+        this.healthController = player.GetComponent<HealthController>();
     }
 
     #endregion

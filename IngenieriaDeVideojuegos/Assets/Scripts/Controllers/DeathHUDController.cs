@@ -13,8 +13,6 @@ public class DeathHUDController : MonoBehaviour, IHUD
     [SerializeField] private Image backgroundImage;
     [SerializeField] private TMP_Text scoreText;
 
-    private PlayerController playerController;
-
     #endregion
 
     #region MonoBehaviour
@@ -42,11 +40,6 @@ public class DeathHUDController : MonoBehaviour, IHUD
     {
         this.canvas.gameObject.SetActive(visible);
         UpdateScoreText();
-    }
-
-    public void SetPlayerReference(PlayerController player)
-    {
-        this.playerController = player;
     }
 
     public void OnReturnToMenuButtonPressed()

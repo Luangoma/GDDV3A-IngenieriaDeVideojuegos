@@ -9,8 +9,6 @@ public class PauseMenuController : MonoBehaviour, IHUD
 
     [SerializeField] private Canvas canvas;
 
-    private PlayerController playerController;
-
     #endregion
 
     #region MonoBehaviour
@@ -37,11 +35,6 @@ public class PauseMenuController : MonoBehaviour, IHUD
     public void SetVisible(bool visible)
     {
         this.canvas.gameObject.SetActive(visible);
-    }
-
-    public void SetPlayerReference(PlayerController player)
-    {
-        this.playerController = player;
     }
 
     public void OnResumeButtonPressed()

@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         this.startingZ = this.transform.position.z;
-        HUDManager.Instance?.AttachHUDS(this);
+        HUDManager.Instance?.AttachHUDs(this);
     }
 
     void Update()
