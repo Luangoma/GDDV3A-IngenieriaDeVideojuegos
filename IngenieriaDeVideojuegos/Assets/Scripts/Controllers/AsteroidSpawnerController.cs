@@ -13,6 +13,7 @@ public class AsteroidSpawnerController : MonoBehaviour
     [SerializeField] private float spawnRate = 0.5f;
     [SerializeField] private float spawnRadiusMax = 100.0f;
     [SerializeField] private float spawnRadiusMin = 20.0f;
+    [SerializeField] private float despawnDistance = 250.0f;
 
     private ObjectPool<GameObject> asteroidPool;
 
@@ -94,8 +95,16 @@ public class AsteroidSpawnerController : MonoBehaviour
 
         if (successAsteroid && successHealth)
         {
-            asteroid.OnFarFromPlayer = () => { asteroidPool.Release(obj); };
-            health.OnDeath = () => { asteroidPool.Release(obj); GameManager.Instance.IncrementScore(); };
+            asteroid.OnUpdate = (float delta) => {
+                if (asteroid.GetDistanceFromTarget() > this.despawnDistance)
+                {
+                    asteroidPool.Release(obj);
+                }
+            };
+            health.OnDeath = () => {
+                asteroidPool.Release(obj);
+                GameManager.Instance.IncrementScore();
+            };
         }
 
         obj.GetObject().SetActive(true);

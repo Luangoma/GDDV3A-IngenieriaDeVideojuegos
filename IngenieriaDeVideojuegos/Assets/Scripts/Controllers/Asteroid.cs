@@ -12,7 +12,7 @@ public class Asteroid : MonoBehaviour, IObstacle
     [SerializeField] public ScriptableObjectObstacle _scriptableObjectObstacle;
     [SerializeField] private Rigidbody rigidBody;
 
-    public Action OnFarFromPlayer;
+    public Action<float> OnUpdate;
 
     #endregion
 
@@ -28,26 +28,26 @@ public class Asteroid : MonoBehaviour, IObstacle
 
     void Update()
     {
-        FollowTarget(Time.deltaTime);
+        float delta = Time.deltaTime;
+        FollowTarget(delta);
+        OnUpdate?.Invoke(delta);
     }
 
     #endregion
 
     #region PublicMethods
 
+    public float GetDistanceFromTarget()
+    {
+        return (_scriptableObjectObstacle.target.transform.position - transform.position).magnitude;
+    }
+
     public void FollowTarget(float delta)
     {
         Vector2 heading = _scriptableObjectObstacle.target.transform.position - transform.position;
         float distance = heading.magnitude;
         float factor = 1 / (distance + 0.01f); // add a small value to prevent divisor from being 0.
-
         rigidBody.AddForce(heading.normalized * delta * _scriptableObjectObstacle.speed * factor, ForceMode.VelocityChange);
-
-
-        if (distance > 250)
-        {
-            OnFarFromPlayer?.Invoke();
-        }
     }
 
     public void OnCollisionEnter(Collision collision)
