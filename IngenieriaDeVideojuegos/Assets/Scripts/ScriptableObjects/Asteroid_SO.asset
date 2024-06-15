@@ -12,15 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bffd033d7cd3dd4bbf93f4403d6460a, type: 3}
   m_Name: Asteroid_SO
   m_EditorClassIdentifier: 
-  defaultSpeed: 20
-  projectileSpeed: 20
-  explosiveSpeed: 20
-  shooterSpeed: 20
-  defaultSpriteOn: {fileID: 0}
-  projectileSpriteOn: {fileID: 0}
-  explosiveSpriteOn: {fileID: 0}
-  shooterSpriteOn: {fileID: 0}
-  defaultSpriteOff: {fileID: 0}
-  projectileSpriteOff: {fileID: 0}
-  explosiveSpriteOff: {fileID: 0}
-  shooterSpriteOff: {fileID: 0}
+  defaultData:
+    speed: 20
+    scale: 1
+    spriteOn: {fileID: 0}
+    spriteOff: {fileID: 0}
+  projectileData:
+    speed: 40
+    scale: 0.4
+    spriteOn: {fileID: 0}
+    spriteOff: {fileID: 0}
+  explosiveData:
+    speed: 20
+    scale: 1
+    spriteOn: {fileID: 0}
+    spriteOff: {fileID: 0}
+  shooterData:
+    speed: 10
+    scale: 2
+    spriteOn: {fileID: 0}
+    spriteOff: {fileID: 0}

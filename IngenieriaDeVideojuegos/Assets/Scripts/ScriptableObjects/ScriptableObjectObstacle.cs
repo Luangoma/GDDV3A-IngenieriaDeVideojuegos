@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 [CreateAssetMenu(fileName = "New Obstacle", menuName = "Obstacle")]
 public class ScriptableObjectObstacle : ScriptableObject
@@ -11,27 +12,10 @@ public class ScriptableObjectObstacle : ScriptableObject
 
     private GameObject target;
 
-    // Speeds:
-    [Header("Speed Data")]
-    [SerializeField] private float defaultSpeed = 20;
-    [SerializeField] private float projectileSpeed = 20;
-    [SerializeField] private float explosiveSpeed = 20;
-    [SerializeField] private float shooterSpeed = 20;
-
-    // Sprites (ON):
-    [Header("Sprites (ON)")]
-    [SerializeField] private Sprite defaultSpriteOn;
-    [SerializeField] private Sprite projectileSpriteOn;
-    [SerializeField] private Sprite explosiveSpriteOn;
-    [SerializeField] private Sprite shooterSpriteOn;
-
-    // Sprites (OFF):
-    [Header("Sprites (OFF)")]
-    [SerializeField] private Sprite defaultSpriteOff;
-    [SerializeField] private Sprite projectileSpriteOff;
-    [SerializeField] private Sprite explosiveSpriteOff;
-    [SerializeField] private Sprite shooterSpriteOff;
-
+    [SerializeField] private AsteroidTypeData defaultData;
+    [SerializeField] private AsteroidTypeData projectileData;
+    [SerializeField] private AsteroidTypeData explosiveData;
+    [SerializeField] private AsteroidTypeData shooterData;
 
     #endregion
 
@@ -43,49 +27,39 @@ public class ScriptableObjectObstacle : ScriptableObject
 
     #region PublicMethods
 
-    public float GetSpeed(AsteroidType type)
+    public AsteroidTypeData GetTypeData(AsteroidType type)
     {
         switch (type)
         {
             default:
-                return defaultSpeed;
+                return defaultData;
             case AsteroidType.Projectile:
-                return projectileSpeed;
+                return projectileData;
             case AsteroidType.Explosive:
-                return explosiveSpeed;
+                return explosiveData;
             case AsteroidType.Shooter:
-                return shooterSpeed;
+                return shooterData;
         }
+    }
+
+    public float GetSpeed(AsteroidType type)
+    {
+        return GetTypeData(type).speed;
+    }
+
+    public float GetScale(AsteroidType type)
+    {
+        return GetTypeData(type).scale;
     }
 
     public Sprite GetSpriteOn(AsteroidType type)
     {
-        switch (type)
-        {
-            default:
-                return defaultSpriteOn;
-            case AsteroidType.Projectile:
-                return projectileSpriteOn;
-            case AsteroidType.Explosive:
-                return explosiveSpriteOn;
-            case AsteroidType.Shooter:
-                return shooterSpriteOn;
-        }
+        return GetTypeData(type).spriteOn;
     }
 
     public Sprite GetSpriteOff(AsteroidType type)
     {
-        switch (type)
-        {
-            default:
-                return defaultSpriteOff;
-            case AsteroidType.Projectile:
-                return projectileSpriteOff;
-            case AsteroidType.Explosive:
-                return explosiveSpriteOff;
-            case AsteroidType.Shooter:
-                return shooterSpriteOff;
-        }
+        return GetTypeData(type).spriteOff;
     }
 
     #endregion
