@@ -80,6 +80,7 @@
     <Compile Include="Assets\Scripts\Interfaces\IPickUp.cs" />
     <Compile Include="Assets\Scripts\Managers\GameManager.cs" />
     <Compile Include="Assets\Scripts\Controllers\BulletSpawnerController.cs" />
+    <Compile Include="Assets\Scripts\Data\AsteroidType.cs" />
     <Compile Include="Assets\Scripts\Utility\ObservableVariable.cs" />
     <Compile Include="Assets\Scripts\Controllers\SceneControllers\MenuControllers\MainMenuController.cs" />
     <Compile Include="Assets\Scripts\Managers\LevelManager.cs" />
