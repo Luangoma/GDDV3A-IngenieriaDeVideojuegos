@@ -107,12 +107,32 @@ public class Asteroid : MonoBehaviour, IObstacle
     private void ObstacleBehaviour(float delta)
     {
         elapsedTime += delta;
-        if (this.asteroidType == AsteroidType.Projectile && elapsedTime >= 5.0f)
+        float time = 8.0f;
+        if (elapsedTime > time)
         {
-            elapsedTime -= 5.0f;
+            elapsedTime -= time;
+            
             Vector3 dir = (_scriptableObjectObstacle.Target.transform.position - transform.position).normalized;
-            rigidBody.AddForce(dir * delta * _scriptableObjectObstacle.GetSpeed(asteroidType) * 12, ForceMode.VelocityChange);
-            print("GIVING A LIL PUSH!");
+            
+            if (this.asteroidType == AsteroidType.Projectile)
+            {
+                rigidBody.AddForce(dir * delta * _scriptableObjectObstacle.GetSpeed(asteroidType) * 12, ForceMode.VelocityChange);
+            }
+            else
+            if (this.asteroidType == AsteroidType.Shooter)
+            {
+                var bulletGameObject = PoolManager.Instance?.BulletSpawner?.BulletPool.Get().GetObject();
+                if (bulletGameObject != null)
+                {
+                    bulletGameObject.transform.position = transform.position + dir * 5;
+                    bulletGameObject.transform.rotation = Quaternion.LookRotation(Vector3.forward, dir);
+                    print("bullet is OKKKKKK");
+                }
+                else
+                {
+                    print("bullet is null!!!!");
+                }
+            }
         }
     }
 

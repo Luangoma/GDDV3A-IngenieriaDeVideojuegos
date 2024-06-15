@@ -64,6 +64,7 @@
     <Compile Include="Assets\Scripts\Interfaces\IHUD.cs" />
     <Compile Include="Assets\Scripts\Controllers\AsteroidSpawnerController.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IPooleableObject.cs" />
+    <Compile Include="Assets\Scripts\Managers\PoolManager.cs" />
     <Compile Include="Assets\Scripts\Controllers\SceneControllers\MenuControllers\CreditsMenuController.cs" />
     <Compile Include="Assets\Scripts\Managers\CameraManager.cs" />
     <Compile Include="Assets\Scripts\Utility\Singleton.cs" />
