@@ -67,18 +67,23 @@ public class PlayerController : MonoBehaviour
     {
         movementVector = Vector2.zero;
 
-        if (Input.GetKey(KeyCode.W)) movementVector.x += 1;
-        if (Input.GetKey(KeyCode.S)) movementVector.x -= 1;
+        if (healthController.IsAlive())
+        {
+            if (Input.GetKey(KeyCode.W)) movementVector.x += 1;
+            if (Input.GetKey(KeyCode.S)) movementVector.x -= 1;
 
-        if (Input.GetKey(KeyCode.D)) movementVector.y += 1;
-        if (Input.GetKey(KeyCode.A)) movementVector.y -= 1;
+            if (Input.GetKey(KeyCode.D)) movementVector.y += 1;
+            if (Input.GetKey(KeyCode.A)) movementVector.y -= 1;
 
-        if (Input.GetKeyDown(KeyCode.Return)) Shoot();
-
+            if (Input.GetKeyDown(KeyCode.Return)) Shoot();
+        }
 
         // DEBUG INPUT : DISABLE IN PRODUCTION!!!
-        if (Input.GetKeyDown(KeyCode.P)) this.healthController.Damage(10);
-        if (Input.GetKeyDown(KeyCode.O)) this.healthController.Heal(10);
+        if (DebugManager.Instance != null && DebugManager.Instance.DebugEnabled)
+        {
+            if (Input.GetKeyDown(KeyCode.P)) this.healthController.Damage(10);
+            if (Input.GetKeyDown(KeyCode.O)) this.healthController.Heal(10);
+        }
     }
 
     private void UpdateMovement(float delta)
