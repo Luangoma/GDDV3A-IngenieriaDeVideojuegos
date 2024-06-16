@@ -12,6 +12,8 @@ public class ExplosionController : MonoBehaviour
     public Action OnAnimationStart;
     public Action OnAnimationStop;
 
+    private float elapsedTime = 0.0f;
+
     #endregion
 
     #region MonoBehaviour
@@ -23,7 +25,8 @@ public class ExplosionController : MonoBehaviour
 
     void Update()
     {
-        
+        UpdateAnimationTime(Time.deltaTime);
+        if (DebugManager.DebugEnabled && Input.GetKeyDown(KeyCode.K)) PlayAnimation();
     }
 
     #endregion
@@ -32,7 +35,7 @@ public class ExplosionController : MonoBehaviour
 
     public void PlayAnimation()
     {
-        animator?.Play("explosion");
+        animator?.Play("Base Layer.explosion");
         OnAnimationStart?.Invoke();
     }
 
@@ -45,5 +48,16 @@ public class ExplosionController : MonoBehaviour
     #endregion
 
     #region PrivateMethods
+
+    private void UpdateAnimationTime(float delta)
+    {
+        elapsedTime += delta;
+        if (elapsedTime > 1.8f)
+        {
+            StopAnimation();
+            elapsedTime = 0.0f;
+        }
+    }
+
     #endregion
 }
