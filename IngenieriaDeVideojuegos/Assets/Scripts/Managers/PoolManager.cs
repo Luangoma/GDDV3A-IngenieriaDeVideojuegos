@@ -8,6 +8,7 @@ public class PoolManager : Singleton<PoolManager>
 
     [SerializeField] private AsteroidSpawnerController asteroidSpawnController;
     [SerializeField] private BulletSpawnerController bulletSpawnController;
+    [SerializeField] private ExplosionSpawnController explosionSpawnController;
 
     #endregion
 
@@ -16,6 +17,8 @@ public class PoolManager : Singleton<PoolManager>
     public AsteroidSpawnerController AsteroidSpawner { get { return asteroidSpawnController; } }
 
     public BulletSpawnerController BulletSpawner { get { return bulletSpawnController; } }
+
+    public ExplosionSpawnController ExplosionSpawner { get { return explosionSpawnController; } }
 
     #endregion
 
