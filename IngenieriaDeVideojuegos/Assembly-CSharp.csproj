@@ -75,6 +75,7 @@
     <Compile Include="Assets\Scripts\Managers\DebugManager.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
     <Compile Include="Assets\Scripts\Controllers\SceneControllers\MenuControllers\OptionsMenuController.cs" />
+    <Compile Include="Assets\Scripts\Controllers\ExplosionSpawnController.cs" />
     <Compile Include="Assets\Scripts\Managers\HUDManager.cs" />
     <Compile Include="Assets\Scripts\Controllers\MineLightFlickerController.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IObjectPool.cs" />
