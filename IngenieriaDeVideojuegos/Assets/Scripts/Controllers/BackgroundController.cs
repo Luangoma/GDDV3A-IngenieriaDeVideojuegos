@@ -8,6 +8,7 @@ public class BackgroundController : MonoBehaviour
 
     [SerializeField] private MeshRenderer mesh;
     [SerializeField] private float offsetFactor = 1.0f;
+    [SerializeField] private Material backgroundMaterial;
 
     #endregion
 
@@ -15,7 +16,8 @@ public class BackgroundController : MonoBehaviour
 
     void Start()
     {
-        
+        if(backgroundMaterial != null)
+            this.mesh.material = backgroundMaterial;
     }
 
     void Update()
