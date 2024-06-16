@@ -902,6 +902,10 @@
       <Project>{F62D434F-B33E-E81F-25E0-F1ABD32F5ECA}</Project>
       <Name>Unity.Rider.Editor</Name>
     </ProjectReference>
+    <ProjectReference Include="Unity.2D.Sprite.Editor.csproj">
+      <Project>{56C0A05E-160D-31BD-F650-CE0B4B7E5100}</Project>
+      <Name>Unity.2D.Sprite.Editor</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.RenderPipelines.Core.Editor.csproj">
       <Project>{DB4E1831-3472-503A-B8E7-415D1595664B}</Project>
       <Name>Unity.RenderPipelines.Core.Editor</Name>

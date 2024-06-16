@@ -68,6 +68,7 @@
     <Compile Include="Assets\Scripts\Controllers\SceneControllers\MenuControllers\CreditsMenuController.cs" />
     <Compile Include="Assets\Scripts\Managers\CameraManager.cs" />
     <Compile Include="Assets\Scripts\Utility\Singleton.cs" />
+    <Compile Include="Assets\Scripts\Controllers\ExplosionController.cs" />
     <Compile Include="Assets\Scripts\Controllers\PlayerFlameController.cs" />
     <Compile Include="Assets\Scripts\Controllers\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Controllers\HUDControllers\VictoryHUDController.cs" />
@@ -801,6 +802,10 @@
     <ProjectReference Include="Unity.Rider.Editor.csproj">
       <Project>{F62D434F-B33E-E81F-25E0-F1ABD32F5ECA}</Project>
       <Name>Unity.Rider.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.2D.Sprite.Editor.csproj">
+      <Project>{56C0A05E-160D-31BD-F650-CE0B4B7E5100}</Project>
+      <Name>Unity.2D.Sprite.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.RenderPipelines.Core.Editor.csproj">
       <Project>{DB4E1831-3472-503A-B8E7-415D1595664B}</Project>
