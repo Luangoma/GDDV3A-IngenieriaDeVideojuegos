@@ -16,17 +16,6 @@ public class CameraManager : Singleton<CameraManager>
 
     #endregion
 
-    #region PrivateEnums
-
-    private enum UpdateType
-    {
-        Update,
-        FixedUpdate,
-        LateUpdate
-    }
-
-    #endregion
-
     #region MonoBehaviour
 
     void Start()
