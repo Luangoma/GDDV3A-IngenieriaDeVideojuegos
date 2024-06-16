@@ -103,6 +103,7 @@ public class AsteroidSpawnerController : MonoBehaviour
                 }
             };
             health.OnDeath = () => {
+                PoolManager.Instance?.ExplosionSpawner?.SpawnExplosion(obj.GetObject().gameObject.transform.position);
                 asteroidPool.Release(obj);
                 GameManager.Instance.IncrementScore();
             };
