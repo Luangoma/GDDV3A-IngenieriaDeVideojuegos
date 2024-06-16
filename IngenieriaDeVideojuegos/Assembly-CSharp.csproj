@@ -58,12 +58,14 @@
     <Analyzer Include="F:\UnityInstalls\Unity 2022.3.2f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Controllers\BackgroundController.cs" />
     <Compile Include="Assets\Scripts\Controllers\BulletController.cs" />
     <Compile Include="Assets\Scripts\Controllers\HUDControllers\DeathHUDController.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IPrototype.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IHUD.cs" />
     <Compile Include="Assets\Scripts\Controllers\AsteroidSpawnerController.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IPooleableObject.cs" />
+    <Compile Include="Assets\Scripts\Data\UpdateType.cs" />
     <Compile Include="Assets\Scripts\Managers\PoolManager.cs" />
     <Compile Include="Assets\Scripts\Controllers\SceneControllers\MenuControllers\CreditsMenuController.cs" />
     <Compile Include="Assets\Scripts\Managers\CameraManager.cs" />
@@ -86,6 +88,7 @@
     <Compile Include="Assets\Scripts\Data\AsteroidType.cs" />
     <Compile Include="Assets\Scripts\Utility\ObservableVariable.cs" />
     <Compile Include="Assets\Scripts\Controllers\SceneControllers\MenuControllers\MainMenuController.cs" />
+    <Compile Include="Assets\Scripts\Managers\BackgroundManager.cs" />
     <Compile Include="Assets\Scripts\Managers\LevelManager.cs" />
     <Compile Include="Assets\Scripts\Utility\ObjectSpawner.cs" />
     <Compile Include="Assets\Scripts\Controllers\Asteroid.cs" />
