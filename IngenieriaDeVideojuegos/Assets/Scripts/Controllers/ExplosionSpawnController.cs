@@ -50,7 +50,7 @@ public class ExplosionSpawnController : MonoBehaviour
     {
         obj.GetObject().SetActive(true);
 
-        ExplosionController explosionController = gameObject.GetComponent<ExplosionController>();
+        ExplosionController explosionController = obj.GetObject().GetComponent<ExplosionController>();
         explosionController.PlayAnimation();
         explosionController.OnAnimationStop = () => {
             explosionPool.Release(obj);
