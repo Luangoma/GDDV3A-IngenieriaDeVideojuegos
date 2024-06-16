@@ -1183,6 +1183,7 @@ Transform:
   m_Children:
   - {fileID: 355147550}
   - {fileID: 1097685205}
+  - {fileID: 2086218457}
   m_Father: {fileID: 206964475}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1200,6 +1201,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidSpawnController: {fileID: 355147548}
   bulletSpawnController: {fileID: 1097685206}
+  explosionSpawnController: {fileID: 2086218458}
 --- !u!1 &1821250015
 GameObject:
   m_ObjectHideFlags: 0
@@ -1426,6 +1428,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9240edfbfbe39f54097ef76bc2751228, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2086218456
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2086218457}
+  - component: {fileID: 2086218458}
+  m_Layer: 0
+  m_Name: ExplosionsPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2086218457
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2086218456}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1727297344}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2086218458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2086218456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b435d42a4b7e76442b308976306bd915, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionPrefab: {fileID: 5815451666421049573, guid: afb1960327aad4141bf60bff8e5e4310,
+    type: 3}
+  initialCapacity: 100
+  maxCapacity: 100
 --- !u!1001 &266359979251509414
 PrefabInstance:
   m_ObjectHideFlags: 0
