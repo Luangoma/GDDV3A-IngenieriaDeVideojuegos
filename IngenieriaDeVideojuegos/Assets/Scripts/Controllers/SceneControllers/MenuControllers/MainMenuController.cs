@@ -31,11 +31,6 @@ public class MainMenuController : MonoBehaviour
         PlayGame();
     }
 
-    public void OnOptionsButtonPressed()
-    {
-        LoadOptionsMenu();
-    }
-
     public void OnCreditsButtonPressed()
     {
         LoadCreditsMenu();
@@ -63,11 +58,6 @@ public class MainMenuController : MonoBehaviour
     private void LoadCreditsMenu()
     {
         LevelManager.Instance.LoadLevel(LevelManager.Instance.CreditsSceneName);
-    }
-
-    private void LoadOptionsMenu()
-    {
-        LevelManager.Instance.LoadLevel(LevelManager.Instance.OptionsSceneName);
     }
 
     #endregion
